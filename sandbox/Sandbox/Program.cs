@@ -6,6 +6,5 @@ class Program
     {
         Console.WriteLine("Hello Sandbox World!");
         Console.WriteLine("what is your grade percentage? ");
-        con
     }
 }
