@@ -24,15 +24,18 @@ class Program
     // Instances of Job
     Job job1 = new Job("Tamopei","Senior Front End Developer",2022,2024);
     job1.DisplayJob();
-    job1._jobTitle="Software Engineer";
+    // job1._jobTitle="Software Engineer";
 
     Job job2 = new Job("LightmanBro", "Director", 2013,2023);
+    job2.DisplayJob();
+
 
     // Instances of Resume
     Resume myResume = new Resume();
-    myResume._name = "David";
+    myResume._name = "David Omotoso";
     myResume._jobs.Add(job1);
     myResume._jobs.Add(job2);
+    myResume.Display();
     }
 
 }
