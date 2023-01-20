@@ -1,14 +1,6 @@
 
-
-
 public class Job 
 {
-static void Main(string[] args)
-    {
-
-        Console.WriteLine("JOB working");
-
-    }
     public string _company, _jobTitle;
     public int _startYear, _endYear;
 
