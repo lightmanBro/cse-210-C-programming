@@ -3,53 +3,25 @@ using System;
 public class newEntry{
 
     public string _question;
-    private string _Answer;
-    public List<Display> _data = new List<Display>();
-    public newEntry(string _question, string _Answer){
-        this._question = _question;
-        this._Answer = _Answer;
-    }
-
-
-    public void display(){
-         Console.WriteLine(this._question);
-         // Reading the user response to the question
-        this._Answer = Console.ReadLine();
-
-        //Storing the datas into an external list
-        // string fileName = "enryData.txt";
-        // Using the streamwriter class module
-        // using (StreamWriter outputFile = new StreamWriter(fileName)){
-        //     outputFile.WriteLine(this._question);
-        //     outputFile.WriteLine($"Date: {dateText} {this._Answer}");
-        // }
-    }
-
-    public void storeQandA(){
+    public string _Answer;
+    public string _date;
+    
+    // Creating a constructor for the new Entry function
+    public newEntry(string _question){
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
-
-        
+        this._question = _question;
+        this._date = dateText;
     }
+    public void displayQ(){
+        Console.WriteLine(this._question);
+
+    }
+
+    // public void displayEnteries(){
+    //     Console.WriteLine(this._question);
+    //     Console.Write($"{this._date}: {this._Answer}");
+    // }
 }
 
-/*
-using System;
-public class Resume{
 
-    public string _name;
-    public List<Job> _jobs = new List<Job>();
-    
-
-public void Display(){
-    Console.WriteLine($"Name: {_name}");
-    Console.WriteLine("Jobs:");
-
-    foreach(Job job in _jobs)
-        {
-            // This calls the Display method on each job
-            job.DisplayJob();
-        }
-}
-}
-*/ 
