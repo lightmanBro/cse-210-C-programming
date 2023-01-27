@@ -4,26 +4,32 @@ public class newEntry{
 
     public string _question;
     private string _Answer;
-    public newEntry(string _question){
+    public List<Display> _data = new List<Display>();
+    public newEntry(string _question, string _Answer){
         this._question = _question;
+        this._Answer = _Answer;
     }
+
+
     public void display(){
          Console.WriteLine(this._question);
          // Reading the user response to the question
         this._Answer = Console.ReadLine();
 
-        // the file to store the question and answer from the user
-        string fileName = "entryData.txt";
+        //Storing the datas into an external list
+        // string fileName = "enryData.txt";
+        // Using the streamwriter class module
+        // using (StreamWriter outputFile = new StreamWriter(fileName)){
+        //     outputFile.WriteLine(this._question);
+        //     outputFile.WriteLine($"Date: {dateText} {this._Answer}");
+        // }
+    }
 
-        // using the date constructor to get the current date
+    public void storeQandA(){
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
 
-        // Using the streamwriter class module
-        using (StreamWriter outputFile = new StreamWriter(fileName)){
-            outputFile.WriteLine(this._question);
-            outputFile.WriteLine($"Date: {dateText} {this._Answer}");
-        }
+        
     }
 }
 
