@@ -43,15 +43,15 @@ public class journal
     {
         if(_userDetails.Count > 0){
 
-        foreach (var item in _userDetails)
+        foreach (var _item in _userDetails)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(_item);
         }
         }else if(_userDetails.Count < 1){
             Console.WriteLine("Your Entry is Empty");
-            Console.WriteLine("Do you want to read from your saved files?");
-            string ans = Console.ReadLine();
-            if(ans == "yes"){
+            Console.WriteLine("Do you want to read from your saved files? Enter Yes/No");
+            string _ans = Console.ReadLine();
+            if(_ans.ToLower() == "yes"){
                 this.loadEntriesFromExt();
             }else{
                 this.displayQuestion();
@@ -64,14 +64,14 @@ public class journal
     public void saveEntriesToExt()
     {
         Console.WriteLine("Enter file name");
-        string fileName = Console.ReadLine();
-        _entryTitle.Add(fileName);
+        string _fileName = Console.ReadLine();
+        _entryTitle.Add(_fileName);
 
-        using (StreamWriter outputFile = new StreamWriter($"{fileName}.txt"))
+        using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
         {
-            foreach (var item in _userDetails)
+            foreach (var _item in _userDetails)
             {
-                outputFile.WriteLine(item);
+                outputFile.WriteLine(_item);
 
             }
             // You can add text to the file with the WriteLine method
@@ -83,9 +83,9 @@ public class journal
     {
 
         Console.WriteLine("These is/are the files you have");
-        foreach (var title in _entryTitle)
+        foreach (var _title in _entryTitle)
         {
-            Console.WriteLine(title);
+            Console.WriteLine(_title);
         }
 
         Console.WriteLine("Please Enter file name to see the contents");
