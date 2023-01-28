@@ -13,8 +13,8 @@ public class newEntry{
         this._question = _question;
         this._date = dateText;
     }
-    public void displayQ(){
-        Console.WriteLine(this._question);
+    public void displayQ(string question){
+        Console.WriteLine(question);
 
     }
 

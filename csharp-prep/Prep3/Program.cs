@@ -14,7 +14,7 @@ class Program
         int guessTimes = 1;
 
         while(answer != 5 && guessTimes <4) {
-            Console.Write("What is youŕguess?");
+            Console.Write("What is youŕ guess?");
            string guess = Console.ReadLine();
 
             if( int.Parse(guess)== answer ){

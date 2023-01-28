@@ -11,14 +11,16 @@ class Program
         // Console.WriteLine("what is your name");
         //  string Answer = Console.ReadLine();
         // Console.Write(Answer);
-        newEntry question1 = new newEntry("What makes you feel so proud of yourself today?");
-        newEntry question2 = new newEntry("Why did you get up so late today?");
+        newEntry question1 = new newEntry("If I had one thing I could do over today, what would it be?");
+        newEntry question2 = new newEntry("What was the best part of my day?");
+        newEntry question3 = new newEntry("Who was the best person you spoke to today");
         // These will be in a while loop
         
         // initializing the journal class so as to use it here
         journal newJornal = new journal();
         newJornal._entry.Add(question1);
         newJornal._entry.Add(question2);
+        newJornal._entry.Add(question3);
 
         // Initializing the questions to be asked
          void question(){
@@ -31,16 +33,38 @@ class Program
         }
 
         // calling the question displey function.
-        question();
-        Console.Write(">");
+        void DisplayJournal()
+        {    question();
+            string  ans = Console.ReadLine();
+            while (ans != "")
+            {
+               
+                if (int.Parse(ans) == 1)
+                {
+                    newJornal.displayQuestion();
+                }
+                else if (int.Parse(ans) == 2)
+                {
+                    newJornal.showEnteries();
+                }
+                else if (int.Parse(ans) == 3)
+                {
+                    newJornal.saveEntriesToExt();
+                }
+                else if (int.Parse(ans) == 4)
+                {
+                    newJornal.loadEntriesFromExt();
+                }
+            }
 
+        }
 
-        // looping and checking the answer if it meets the condition.
+        DisplayJournal();
 
+        
 
+       
 
-        // displaying the question
-        newJornal.displayQuestion(); 
-
+       
     }
 }
