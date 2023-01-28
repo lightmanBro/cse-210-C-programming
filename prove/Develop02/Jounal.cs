@@ -8,6 +8,8 @@ public class journal
     // created a new list to store all the user enteries
     List<string> _userDetails = new List<string>();
 
+    List<string> questions = new List<string>();
+
     // initializing the list where to save the list of the Entry title
     List<string> _entryTitle = new List<string>();
 
@@ -15,8 +17,11 @@ public class journal
     // initializing the method to save the questions
     public void saveQuestions()
     {
+    
         foreach (newEntry entry in _entry)
         {
+            // Adding the questions to a specific list so as to use the random method on it safely
+            questions.Add(entry._question);
             // To add multiple data into a list at once in C#
             string[] UserEnteries = {
                 entry._question,
@@ -29,13 +34,12 @@ public class journal
 
     public void displayQuestion()
     {
+       
         foreach (newEntry entry in _entry)
         {
-
             entry.displayQ(entry._question);
             entry._Answer = Console.ReadLine();
             this.saveQuestions();
-
         }
     }
 
@@ -90,7 +94,7 @@ public class journal
 
         Console.WriteLine("Please Enter file name to see the contents");
         string filename = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines($"{filename}.txt");
         // looping theough the contents of the file and printig it to the console.
         foreach (string line in lines)
         {

@@ -33,35 +33,15 @@ class Program
         }
 
         // calling the question displey function.
-        void DisplayJournal()
-        {    question();
-            string  ans = Console.ReadLine();
-            while (ans != "")
-            {
-               
-                if (int.Parse(ans) == 1)
-                {
-                    newJornal.displayQuestion();
-                }
-                else if (int.Parse(ans) == 2)
-                {
-                    newJornal.showEnteries();
-                }
-                else if (int.Parse(ans) == 3)
-                {
-                    newJornal.saveEntriesToExt();
-                }
-                else if (int.Parse(ans) == 4)
-                {
-                    newJornal.loadEntriesFromExt();
-                }
-            }
+        question();
+        var ans = Console.ReadLine();
+        newJornal.displayQuestion();
+        newJornal.showEnteries();
+        newJornal.saveEntriesToExt();
+        newJornal.loadEntriesFromExt();
+         
 
-        }
-
-        DisplayJournal();
-
-        
+    
 
        
 

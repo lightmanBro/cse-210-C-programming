@@ -14,7 +14,7 @@ public class newEntry{
         this._date = dateText;
     }
     public void displayQ(string question){
-        Console.WriteLine(question);
+        Console.WriteLine(this._question);
 
     }
 
