@@ -58,7 +58,7 @@ public class journal
             if(_ans.ToLower() == "yes"){
                 this.loadEntriesFromExt();
             }else{
-                this.displayQuestion();
+                return;
             }
             
         }
@@ -83,10 +83,12 @@ public class journal
 
     }
 
+    // Method to load data from external files.
     public void loadEntriesFromExt()
     {
 
         Console.WriteLine("These is/are the files you have");
+        // looping through the list where the entry titles are stored
         foreach (var _title in _entryTitle)
         {
             Console.WriteLine(_title);
@@ -94,6 +96,7 @@ public class journal
 
         Console.WriteLine("Please Enter file name to see the contents");
         string filename = Console.ReadLine();
+        // method to read from the external file contents
         string[] lines = System.IO.File.ReadAllLines($"{filename}.txt");
         // looping theough the contents of the file and printig it to the console.
         foreach (string line in lines)

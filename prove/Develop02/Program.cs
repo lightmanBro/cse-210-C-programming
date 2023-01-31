@@ -32,13 +32,32 @@ class Program
             Console.WriteLine("5.Quit");
         }
 
-        // calling the question displey function.
+        // calling the question display function.
+
+
+        string input = "yes";
+
         question();
-        var ans = Console.ReadLine();
-        newJornal.displayQuestion();
-        newJornal.showEnteries();
-        newJornal.saveEntriesToExt();
-        newJornal.loadEntriesFromExt();
+        while (input == "yes")
+        {
+            Console.Write(">");
+            input = Console.ReadLine();
+            if(int.Parse(input) == 1){
+                newJornal.displayQuestion();
+            }else if(int.Parse(input)==2){
+
+                newJornal.showEnteries();
+            }else if(int.Parse(input)==3){
+                
+                newJornal.saveEntriesToExt();
+            }else if(int.Parse(input)==4){
+                newJornal.loadEntriesFromExt();
+            }else{
+                return;
+            }
+        }
+        
+        
          
 
     
