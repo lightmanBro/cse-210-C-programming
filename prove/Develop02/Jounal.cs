@@ -34,7 +34,7 @@ public class journal
 
     public void displayQuestion()
     {
-       
+       Console.WriteLine(questions);
         foreach (newEntry entry in _entry)
         {
             entry.displayQ(entry._question);
