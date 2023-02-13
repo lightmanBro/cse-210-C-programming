@@ -6,7 +6,8 @@ class Program
     {
         Console.WriteLine("Hello Learning03 World!");
         Fraction fraction = new Fraction(15,45);
-        Console.WriteLine(fraction.GetFractionToString());
+        string txt = fraction.GetFractionToString();
+        Console.WriteLine(txt);
         Console.WriteLine(fraction.GetDecimalValue());
     }    
 }
