@@ -1,60 +1,67 @@
 using System;
 
-using System.Collections.Generic;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Scipture");
 
 
-        Refrence refrence = new Refrence("matt",5,3);
-        string r = refrence.refVerseToString();
-        Console.WriteLine(r);
+        Console.Write("Enter the book: ");
+        string userBook = Console.ReadLine();
+        Console.Write("Enter the chapter of the book: ");
+        string userChapter = Console.ReadLine();
+        Console.Write("Enter the first verse of the chapter: ");
+        string userVerseF = Console.ReadLine();
+        Console.Write("Enter the last verse of the chapter: (Press 'N' if there isn't) ");
+        string userVerseL = Console.ReadLine().ToLower();
+        Console.Write("Enter your scripture: ");
+        string userPhase = Console.ReadLine();
 
-        Scripture scripture = new Scripture();
-        scripture.displayScripture();
-        
+ 
+        Reference referenceStructure = new(userBook, userChapter, userVerseF, userVerseL);
+        string reference = referenceStructure.GetCompleteReference();
+        Scripture scritureStructure = new Scripture(userPhase);
+        string scripture = scritureStructure.GetCompleteScripture();
+        Domain domain = new Domain(reference, scripture);
+        string completePhase = domain.CompletePhase();
 
+        Word word = new();
 
-
-
-
-        // string verse1 = "prov 3:4";
-        // string proverb = "for God so love the world that he gave his only begotten .......";
-        // string verse2 = "matt 5:6";
-        // string matt = "In the beginning......";
-
-        // Entry newEnt = new Entry();
-        // Entry newEnt2 = new Entry();
-
-        // // first style
-        // newEnt.addScripture(verse1,proverb);
-        // newEnt.addScripture(verse2,matt);
-        // newEnt.displayQ();
-
-        // // second style
-        // newEnt2.addScripture2(verse1,proverb);
-        // newEnt2.addScripture2(verse2,matt);
-        // newEnt2.displayQ2();
-        
-
-        // // third style
-        // string refr = newEnt.addRef(proverb);
-        // string vrse = newEnt.addVerse(verse1);
-        // Scripture src = new Scripture();
-
-        // // fourth style
-        // string[] srcEnt = {
-        //         refr,
-        //         vrse
-        //     };
-        // src._addScripture.AddRange(srcEnt);
-        // src.displayScripture();
+        //Divide the list for each space between the words
+        List<string> list = new();
+        list = scripture.Split(" ").ToList();
 
         
+        List<string> listWithSlashs = new();
+        bool condition = true;
+
+        
+        Console.Clear(); 
+        word.GetCompletePhase(completePhase, list, condition, reference);
+
+
+        listWithSlashs.Add(reference + " ");
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            listWithSlashs.Add((string)list[i] + " ");
+            Console.Clear();
+        }
+
+        
+        Console.WriteLine("You have finished the program. ");
+        word.GetCompletePhase(completePhase, list, condition, reference);
+        Console.Write("The phrase reached was like this: "); 
+        Console.WriteLine();
+
+        //Print the final "current" list
+        foreach (var item in listWithSlashs)
+        {
+            Console.Write($"{item}");
+        }
+                
+
+
+      
     }
-
-
-
 }
