@@ -4,33 +4,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
-        Person p = new Person();
-        // Console.WriteLine();
-        p.SetNames("Mr","David","Omotoso");
-        string names = p.GetFormalSignature();
-        Console.WriteLine(names);
+    
+      Assignment assignment = new Assignment();
+      assignment.setTopic("Rice and dodo");
+      Mathematics math = new Mathematics();
+      math.setProblem(" ");
+      Console.WriteLine(math.getHomeworkList());
+
+      WritingAss writing = new WritingAss();
+      writing.setStudentName("Ajayi Ayoka");
+      writing.setTextBookSession("Things Fall Apart");
+      writing.setTitle("The Death of ikemefuna");
+      Console.WriteLine(writing.getWrittingInfo());
+
+      
     }
 
-    public class Person{
-        private string _title;
-        private String _firstName;
-        private string _lastName;
-
-        public string GetInformationSignature(){
-            return "Thanks,  " + _firstName;
-        }
-        public string GetFormalSignature(){
-            return "Sincerely " + GetFullName(); 
-        }
-
-        private string GetFullName(){
-            return _title + " "+ _firstName+ " "+ _lastName;
-        }
-        public void SetNames(string title, string first, string last){
-            _title = title;
-            _firstName = first;
-            _lastName = last;
-        }
-    }
 }

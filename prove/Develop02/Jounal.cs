@@ -23,12 +23,13 @@ public class journal
             // Adding the questions to a specific list so as to use the random method on it safely
             questions.Add(entry._question);
             // To add multiple data into a list at once in C#
-            string[] UserEnteries = {
-                entry._question,
-                entry._date,
-                entry._Answer
-            };
-            _userDetails.AddRange(UserEnteries);
+            // string[] UserEnteries = {
+            //     entry._question,
+            //     entry._date,
+            //     entry._Answer
+            // };
+            // _userDetails.AddRange(UserEnteries);
+            _userDetails.Add($"'{entry._question}', '{entry._date}','{entry._Answer}'");
         }
     }
 
@@ -69,13 +70,15 @@ public class journal
     {
         Console.WriteLine("Enter file name");
         string _fileName = Console.ReadLine();
+        // to add a file as a json file then the AddRange() should be used.
         _entryTitle.Add(_fileName);
 
         using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
         {
             foreach (var _item in _userDetails)
             {
-                outputFile.WriteLine(_item);
+                outputFile.WriteLine($"[{_item}],");
+            
 
             }
             // You can add text to the file with the WriteLine method

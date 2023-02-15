@@ -38,24 +38,24 @@ class Program
         string input = "yes";
 
         question();
-        while (input == "yes")
-        {
-            Console.Write(">");
-            input = Console.ReadLine();
-            if(int.Parse(input) == 1){
-                newJornal.displayQuestion();
-            }else if(int.Parse(input)==2){
+        Console.Write(">");
+        input = Console.ReadLine();
+        newJornal.displayQuestion();
+        newJornal.showEnteries();
+        newJornal.saveEntriesToExt();
+        newJornal.loadEntriesFromExt();
+        // while (input == "yes")
+        // {
+        //     if(int.Parse(input) == 1){
+        //     }else if(int.Parse(input)==2){
 
-                newJornal.showEnteries();
-            }else if(int.Parse(input)==3){
+        //     }else if(int.Parse(input)==3){
                 
-                newJornal.saveEntriesToExt();
-            }else if(int.Parse(input)==4){
-                newJornal.loadEntriesFromExt();
-            }else{
-                return;
-            }
-        }
+        //     }else if(int.Parse(input)==4){
+        //     }else{
+        //         return;
+        //     }
+        // }
         
         
          
