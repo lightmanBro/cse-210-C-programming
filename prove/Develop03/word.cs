@@ -1,59 +1,16 @@
-public class Word
-{
+using System;
+class Word{
 
+    // saved the word as a private string
+    private string _words;
 
-    public void GetCompletePhase(string completePhase, List<string> list, bool condition, string reference)
-    {
-        Console.WriteLine($"The original phase: {completePhase}");
-
-
-        while (list.Any(s => !s.All(c => c == '-')) && condition)
-        {
-            Random rnd = new Random();
-            int index = rnd.Next(0, list.Count);
-            string word = list[index];
-
-            Console.WriteLine("Please, press 'Enter' to continue or 'Exit' to quit.");
-            string response = Console.ReadLine().ToLower();
-
-            string newWord = "";
-
-
-            for (int i = 0; i < word.Length; i++)
-            {
-            
-                newWord += "-";
-            }
-
-            list[index] = newWord;
-
-            string ultimatePhase = string.Empty;
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                ultimatePhase += list[i].ToString() + " ";
-            }
-
-            string completeQuote = $"The current phase: {reference} {ultimatePhase}";
-
-            if (response != "exit")
-            {
-                Console.Clear();
-                Console.WriteLine(completeQuote);
-            }
-            else
-            {
-
-                Console.WriteLine("");
-            }
-
-            //Whe the user put exit, finish the loop
-            if (response == "exit")
-            {
-                condition = false;
-            }
-        }
+    // method to set the word
+    public string addWord(string wrd){
+        _words = $"{wrd}";
+        return _words;
     }
-
-
+    // method to check the word
+    public void checkWord(){
+        Console.WriteLine(_words);
+    }
 }

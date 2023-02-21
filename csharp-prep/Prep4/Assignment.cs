@@ -23,4 +23,4 @@ class Assignment{
     public string getSummary(){
         return $"{_studentName} - {_topic}";
     }
-}
+} 
