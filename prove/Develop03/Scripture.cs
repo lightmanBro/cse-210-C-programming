@@ -60,7 +60,6 @@ class Scripture
             Console.WriteLine($"{_refrence} {_singleVerse.Replace(wrds, "___")}");
             ans = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine($"{_refrence} {_singleVerse.Replace(wrds, "___")}");
         }
         return $"{wordList}";
     }
