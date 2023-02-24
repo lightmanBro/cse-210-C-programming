@@ -30,7 +30,7 @@ class Listening:Activity{
         {
             //display the questions inside the list
             string ques = displayQues();
-            
+
             //display the spinner awaiting an answer to the question
             displaySpinner();
 
@@ -42,7 +42,9 @@ class Listening:Activity{
             // perform all the activities here
             Console.WriteLine("We have not arrived at our future time yet...");
         }else if(currentTime == futureTime){
+            // use if stetement to ask the user to save the answers to an external text file or display it inside the console immediately
 
+            //display the finishing message.
             finishingMsg();
         }
     }
