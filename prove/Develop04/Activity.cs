@@ -37,6 +37,18 @@ class Activity{
         Thread.Sleep(_activityDur*100);
         Console.WriteLine(_activityDur*1000);
     }
+
+    public void displaySpinner(){
+        int i = 0;
+        while(i<1){
+            Console.Write("+");
+            Thread.Sleep(500);
+
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("-"); // Replace it with the - character
+            i++;
+        }
+    }
     // the finishing message to display
     public void finishingMsg(){
         Console.WriteLine("well done!!");
