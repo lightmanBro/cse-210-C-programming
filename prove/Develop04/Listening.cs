@@ -6,8 +6,11 @@ class Listening:Activity{
     
     private string displayQues(){
         //loop through all the questions and display it randomly one after and return it each so as to save it inside a variable.
-
-        return //question
+        var random = new Random();
+        //saving the random number picked from the length of the list into the string variable index.
+        int index = random.Next(_listeningQues.Count);
+        string wrds = _listeningQues[index];
+        return $"{wrds}"; //question
     }
 
 
@@ -43,9 +46,21 @@ class Listening:Activity{
             Console.WriteLine("We have not arrived at our future time yet...");
         }else if(currentTime == futureTime){
             // use if stetement to ask the user to save the answers to an external text file or display it inside the console immediately
-
+            Console.WriteLine("Do you want to view your entries? ");
+            string ans = Console.ReadLine();
+            if(ans.ToLower() == "yes"){
+                displayEntries();
+                finishingMsg();
+            }else{
+                finishingMsg();
+            }
             //display the finishing message.
-            finishingMsg();
+            // finishingMsg();
+        }
+    }
+    public void displayEntries(){
+        foreach(string ans in _listeningAns){
+            Console.WriteLine(ans);
         }
     }
 }

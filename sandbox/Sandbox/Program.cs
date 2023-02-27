@@ -6,14 +6,20 @@ class Program
     {
         // Console.WriteLine("Hello Sandbox World!");
         // Console.WriteLine("Going to sleep for a second...");
-
-        int i = 0;
-        while(i<1){
+        void spinner(int i){
             Console.Write("+");
             Thread.Sleep(500);
-
             Console.Write("\b \b"); // Erase the + character
+            Console.Clear();
+            Console.Write(i+"/10");
             Console.Write("-"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+        }
+        int i = 1;
+        while(i<10){
+            spinner(i);
+
             i++;
         }
 
@@ -23,18 +29,18 @@ class Program
 
         // Console.WriteLine("I'm back!!");
         // Console.WriteLine("what is your grade percentage? ");
-        Console.WriteLine("how long do you want the program to run for?");
-        string ans = Console.ReadLine();
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5000);
+        // Console.WriteLine("how long do you want the program to run for?");
+        // string ans = Console.ReadLine();
+        // DateTime startTime = DateTime.Now;
+        // DateTime futureTime = startTime.AddSeconds(5000);
 
-        Thread.Sleep(int.Parse(ans)*100);
-        Console.WriteLine(int.Parse(ans)*1000);
+        // Thread.Sleep(int.Parse(ans)*100);
+        // Console.WriteLine(int.Parse(ans)*1000);
 
-        DateTime currentTime = DateTime.Now;
-        if (currentTime < futureTime)
-        {
-            Console.WriteLine("We have not arrived at our future time yet...");
-        }
+        // DateTime currentTime = DateTime.Now;
+        // if (currentTime < futureTime)
+        // {
+        //     Console.WriteLine("We have not arrived at our future time yet...");
+        // }
     }
 } 

@@ -8,6 +8,11 @@ class Reflection:Activity{
 
     private void displaRefQues(){
         // randomly display the questions inside the list
+        var random = new Random();
+        //saving the random number picked from the length of the list into the string variable index.
+        int index = random.Next(_reflectQues.Count);
+        string wrds = _reflectQues[index];
+        Console.WriteLine(wrds); //question
     }
 
     public void reflect(){
