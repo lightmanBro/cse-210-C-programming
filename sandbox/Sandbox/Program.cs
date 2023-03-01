@@ -6,22 +6,22 @@ class Program
     {
         // Console.WriteLine("Hello Sandbox World!");
         // Console.WriteLine("Going to sleep for a second...");
-        void spinner(int i){
-            Console.Write("+");
-            Thread.Sleep(500);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Clear();
-            Console.Write(i+"/10");
-            Console.Write("-"); // Replace it with the - character
-            Thread.Sleep(500);
-            Console.Write("\b \b"); // Erase the + character
-        }
-        int i = 1;
-        while(i<10){
-            spinner(i);
+        // void spinner(int i){
+        //     Console.Write("+");
+        //     Thread.Sleep(500);
+        //     Console.Write("\b \b"); // Erase the + character
+        //     Console.Clear();
+        //     Console.Write(i+"/10");
+        //     Console.Write("-"); // Replace it with the - character
+        //     Thread.Sleep(500);
+        //     Console.Write("\b \b"); // Erase the + character
+        // }
+        // int i = 1;
+        // while(i<10){
+        //     spinner(i);
 
-            i++;
-        }
+        //     i++;
+        // }
 
 
         //Pausing time
@@ -42,5 +42,17 @@ class Program
         // {
         //     Console.WriteLine("We have not arrived at our future time yet...");
         // }
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(5000);
+
+        // Thread.Sleep(10000);
+
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
+        {
+            Console.Write("Arrives");
+        
+        }
+        
     }
 } 

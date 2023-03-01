@@ -24,8 +24,8 @@ class Activity{
     }
 
     // the welcoming messages to display
-    public string displayMessage(){
-        return $"{_activityName}\n{_activityDesc}";
+    public void displayMessage(){
+        Console.WriteLine($"{_activityName}\n{_activityDesc}");
     }
 
     public void countdownTimer(){
@@ -34,24 +34,13 @@ class Activity{
         //calling the duration function here and passing the ans variable into it as a parameter;
         setDuration(ans);
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5000);
-        Thread.Sleep(_activityDur*100);
+        DateTime futureTime = startTime.AddSeconds(int.Parse(ans)*1000);
+        Thread.Sleep(_activityDur*1000);
         Console.WriteLine(_activityDur*1000);
     }
 
     public void displaySpinner(){
-        //first style of spinner
-        // while(i<1){
-        //     Console.Write("+");
-        //     Thread.Sleep(1000);
-
-        //     Console.Write("\b \b"); // Erase the + character
-        //     Console.Write("-"); // Replace it with the - character
-        //     Console.Clear();
-        //     Console.Write(i+"/5");
-        //     i++;
-        // }
-        //customized spinner
+        Console.WriteLine("Get Ready...");
         void spinner(int i){
             Thread.Sleep(1000);
             Console.Clear();
