@@ -46,7 +46,6 @@ class Listening:Activity{
         //welcoming message
         displayMessage();
         //count down timer for the amount of time scheduled for the session
-        countdownTimer();
         Console.WriteLine("Get ready...");
         //display the animation ehile the user is getting ready for the activity.
         displaySpinner();

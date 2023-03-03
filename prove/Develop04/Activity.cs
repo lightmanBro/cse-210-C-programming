@@ -2,13 +2,13 @@ using System;
 class Activity{
     private string _activityName;
     private string _activityDesc;
-    private int _activityDur;
+    protected string _activityDur;
 
     public Activity(){
         //default constructor parameters.
 		_activityName = "Unknown";
 		_activityDesc = "Unknown";
-        _activityDur = 0;
+        _activityDur = "";
 	}
     
     // setting the member variables
@@ -19,43 +19,44 @@ class Activity{
     }
 
     // setting the duration of time the program should run for.
-    public void setDuration(string dur){
-        _activityDur = int.Parse(dur);
+    public string setDuration(string dur){
+        _activityDur = dur;
+        return dur;
+        
     }
+
 
     // the welcoming messages to display
     public void displayMessage(){
         Console.WriteLine($"{_activityName}\n{_activityDesc}");
     }
 
-    public void countdownTimer(){
-        Console.WriteLine("How long do you want the program to run for in seconds ?");
-        string ans = Console.ReadLine();
-        //calling the duration function here and passing the ans variable into it as a parameter;
-        setDuration(ans);
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(int.Parse(ans)*1000);
-        Thread.Sleep(_activityDur*1000);
-        Console.WriteLine(_activityDur*1000);
-    }
-
     public void displaySpinner(){
-        Console.WriteLine("Get Ready...");
-        void spinner(int i){
-            Thread.Sleep(1000);
-            Console.Clear();
-            Console.Write(i+"/5");
+        Console.Write("Get Ready...");
+        int i = 4;
+        while(i<=5){
+            Console.Write("/");
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("-"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("|"); // Erase the + character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            i-=1;
+            if(i ==-1){
+                return;
+            }
         }
-        int i = 1;
-        while(i<6){
-            spinner(i);
-            i++;
-        }
+        Console.WriteLine();
     }
 
     // the finishing message to display
     public void finishingMsg(){
+        Console.WriteLine("   ");
         Console.WriteLine("well done!!");
-		Console.WriteLine( $"You have completed another {_activityDur} of {_activityName}");
+		Console.WriteLine( $"You have completed another {this._activityDur} of {this._activityName}");
 	}
+
 }

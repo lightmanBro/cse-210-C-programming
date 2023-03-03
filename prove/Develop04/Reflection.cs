@@ -1,12 +1,16 @@
 using System;
 class Reflection:Activity{
-    private List<string> _reflectQues;
+    private List<string> _reflectQues = new List<string>();
+    private List<string> _reflectLists = new List<string>();
 
-    public void addQues(string ques){
-        _reflectQues.Add(ques);
+    public void addQues(string rQues){
+         _reflectQues.Add(rQues);
     }
 
-    private void displaRefQues(){
+    public void addListsPrompt(string ques){
+        _reflectLists.Add(ques);
+    }
+    public void displaRefQues(){
         // randomly display the questions inside the list
         var random = new Random();
         //saving the random number picked from the length of the list into the string variable index.
@@ -14,23 +18,18 @@ class Reflection:Activity{
         string wrds = _reflectQues[index];
         Console.WriteLine(wrds); //question
     }
-
+    public void displayQuesList(){
+        foreach(var quest in _reflectLists){
+                Thread.Sleep(5000);
+                Console.WriteLine(quest);
+                Console.WriteLine();
+        }
+    }
     public void reflect(){
         displayMessage();
-        displaRefQues();
-        countdownTimer();
         displaySpinner();
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5000);
-        DateTime currentTime = DateTime.Now;
-        if (currentTime < futureTime)
-        {
-
-            // perform all the activities here
-            Console.WriteLine("We have not arrived at our future time yet...");
-        }else if(currentTime == futureTime){
-
-            finishingMsg();
-        }
+        displaRefQues();
+        displayQuesList();
+        // displaySpinner();
     }
 }
