@@ -11,7 +11,7 @@ class Listening:Activity{
         _listeningQues.Add($"{question}");
     }
 
-    string random(){
+    public string random(){
             var random = new Random();
             //saving the random number picked from the length of the list into the string variable index.
             int index = random.Next(_listeningQues.Count);
@@ -19,22 +19,7 @@ class Listening:Activity{
             Console.WriteLine(wrds);
             return $"{wrds}";
         }
-    private void displayQues(){
-        
-        //loop through all the questions and display it randomly one after and return it each so as to save it inside a variable.
-        //do while loop
-        Console.WriteLine("write Quit when done");
-        string quit ="";
-        do
-        { 
-            //saving the returned string from the random() into a variable
-            string wrds = random();
-            Console.WriteLine(wrds);
-            Console.WriteLine("Waiting for reflection");
-            displaySpinner();
-            quit = Console.ReadLine();
-        } while (quit.ToLower() != "quit");
-    }
+
 
     //take the returned question and pass it as a parameter to this function 
     public void saveAns(string ques, string ans){
@@ -45,39 +30,53 @@ class Listening:Activity{
     public void listen(){
         //welcoming message
         displayMessage();
-        //count down timer for the amount of time scheduled for the session
-        Console.WriteLine("Get ready...");
-        //display the animation ehile the user is getting ready for the activity.
         displaySpinner();
-        string ques = random();
-            //display the spinner awaiting an answer to the question
-            // displaySpinner();
 
-            Console.Write(">");
+        Console.WriteLine("How long in seconds would you like for your session?");
+        string Dur = Console.ReadLine();
+
+        //pass the value from the Dur into the setduration function which returns a string wich will be saved as the time to run the program.
+        string q = random();
+        // displaySpinner2();
+
+        string timeToRun = setDuration(Dur);
+        int start = 0;
+        while (start < int.Parse(timeToRun)/4)
+        {
+            displaySpinner3();
+            Console.WriteLine();
+            Console.WriteLine("Now start listing items");
+            Console.WriteLine(">");
             string ans = Console.ReadLine();
-            //save the answers inside a new list so it could be displayed later
-            saveAns(ques,ans);
-            Console.WriteLine(_listeningAns[0]);
-            // perform all the activities here
-            Console.WriteLine("We have not arrived at our future time yet...");
-            
-        // }if(currentTime == futureTime){
-        //     // use if stetement to ask the user to save the answers to an external text file or display it inside the console immediately
-        //     Console.WriteLine("Do you want to view your entries? ");
-        //     string ans = Console.ReadLine();
-        //     if(ans.ToLower() == "yes"){
-        //         displayEntries();
-        //         finishingMsg();
-        //     }else{
-        //         finishingMsg();
-        //     }
-        //     //display the finishing message.
-        //     // finishingMsg();
-        // }
+            Console.WriteLine();
+
+            //Saving the answers and specific question to a list for viewing later;
+            saveAns(q,ans);
+
+            start += 1;
+        }
+        Console.WriteLine("Will you like to view your resposes?");
+        string yOrN = Console.ReadLine();
+        if(yOrN.ToLower() == "yes"){
+            displayEntries();
+            Console.WriteLine($"Your {timeToRun}s is completed Thanks for your responces");
+            displaySpinner();
+            finishingMsg();
+            return;
+        }else if(yOrN.ToLower() == "no"){
+            Console.WriteLine($"Your {timeToRun}s is completed Thanks for your responces");
+            displaySpinner();
+            finishingMsg();
+        }
     }
     public void displayEntries(){
-        foreach(string ans in _listeningAns){
-            Console.WriteLine(ans);
-        }
+        Console.WriteLine("Your list of responses");
+            if(_listeningAns.Count<=1){
+                foreach(string ans in _listeningAns){
+                    Console.WriteLine(ans);
+                }
+            }else{
+                Console.WriteLine("YOU HAVE NO ANSWERS");
+            }
     }
 }

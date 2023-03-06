@@ -4,20 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Console.WriteLine("Hello Develop04 World!");
-        // Console.WriteLine("Menu Options:");
-        // Console.WriteLine("    1. Start Breathing activity");
-        // Console.WriteLine("    2. Start Reflecting activity");
-        // Console.WriteLine("    3. Start listening activity");
-        // Console.WriteLine("    4. Start Breathing activity");
-        // Console.WriteLine("    5.Quit");
-        // Console.Write("Select from a random choice");
-        // string ans = Console.ReadLine();
-
-        // if (int.Parse(ans) ==1)
-        // {
-            
-        // }
 
 
         Reflection reflect = new Reflection();
@@ -57,8 +43,7 @@ class Program
 
 
 
-        //calling the fuctions
-        // reflect.reflect();
+
 
         string BrName = "Breathing Activity";
         string BrDesc = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
@@ -66,6 +51,57 @@ class Program
         breathe.setActivity(BrName,BrDesc);
         
 
+        string lName = "Listening Activity";
+        string lDesc = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        Listening listen = new Listening();
+        listen.setActivity(lName,lDesc);
 
+
+        string lq1 = "Who are people that you appreciate?";
+        string lq2 = "What are personal strengths of yours?";
+        string lq3 = "Who are people that you have helped this week?";
+        string lq4 = "When have you felt the Holy Ghost this month?";
+        string lq5 = "Who are some of your personal heroes?";
+        listen.setQuestion(lq1);
+        listen.setQuestion(lq2);
+        listen.setQuestion(lq3);
+        listen.setQuestion(lq4);
+        listen.setQuestion(lq5);
+
+
+
+
+
+    string displayQ(){
+            Console.WriteLine("Hello Develop04 World!");
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("    1. Start Breathing activity");
+            Console.WriteLine("    2. Start Reflecting activity");
+            Console.WriteLine("    3. Start listening activity");
+            Console.WriteLine("    4.Quit");
+            Console.WriteLine("Select a choice from the menu");
+            string ans = Console.ReadLine();
+            return ans;
+        }
+        string ans = displayQ();
+
+        if (int.Parse(ans) == 1)
+        {
+            breathe.breathing();
+        }
+        else if (int.Parse(ans) == 2)
+        {
+            reflect.reflect();
+        }
+        else if (int.Parse(ans) == 3)
+        {
+            listen.listen();
+        }
+        else if (int.Parse(ans) == 4)
+        {
+
+        }else if(ans.ToLower() == "quit"){
+            return;
+        }
     }
 }
