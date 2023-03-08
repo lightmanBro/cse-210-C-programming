@@ -88,19 +88,21 @@ class Program
         if (int.Parse(ans) == 1)
         {
             breathe.breathing();
+            Console.Clear();
+            displayQ();
         }
         else if (int.Parse(ans) == 2)
         {
             reflect.reflect();
+            Console.Clear();
+            displayQ();
         }
         else if (int.Parse(ans) == 3)
         {
             listen.listen();
-        }
-        else if (int.Parse(ans) == 4)
-        {
-
-        }else if(ans.ToLower() == "quit"){
+            Console.Clear();
+            displayQ();
+        }else if(int.Parse(ans) == 4){
             return;
         }
     }
