@@ -7,7 +7,6 @@ public abstract class Shape{
         _color = color;
     }
     public virtual string GetColor(){
-
         return _color;
     }
     public virtual void SetColor(string color){
