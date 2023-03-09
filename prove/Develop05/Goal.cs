@@ -4,6 +4,7 @@ public abstract class Goals{
 
     private string _description;
     private int _points;
+
     public Goals(string name,string desc, int points){
         _name = name;
         _description = desc;
