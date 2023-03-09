@@ -3,8 +3,8 @@ public abstract class Goals{
     private string _name;
 
     private string _description;
-    private string _points;
-    public Goals(string name,string desc, string points){
+    private int _points;
+    public Goals(string name,string desc, int points){
         _name = name;
         _description = desc;
         _points = points;
@@ -16,7 +16,13 @@ public abstract class Goals{
     public virtual string getName(){
         return _name;
     }
+    public virtual string getDesc(){
+        return _description;
+    }
 
+    public virtual string getPoints(){
+        return _name;
+    }
     public abstract void recordEvents();
 
 }

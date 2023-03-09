@@ -1,7 +1,7 @@
 public class Checklist:Goals{
 
     private string _bonus;
-    public Checklist(string color,string name,string points):base(name,color,points){
+    public Checklist(string desc,string name,int points):base(name,desc,points){
         
     }
 

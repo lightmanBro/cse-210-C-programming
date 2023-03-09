@@ -1,8 +1,8 @@
 public class Simple:Goals{
 
-    
-    public Simple(string color,string name,string points):base(name,color,points){
-        
+    private string _goalName;
+    public Simple(string desc,string name,int points):base(name,desc,points){
+
     }
 
     public override void recordEvents()

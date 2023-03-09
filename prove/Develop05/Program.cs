@@ -1,19 +1,117 @@
 using System;
-
+using System.IO;
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop05 World!");
-        List<Goals> shapes = new List<Goals>();
-        
-        Console.WriteLine("Menu Options");
-        Console.WriteLine("  1. Create New goal");
-        Console.WriteLine("  2. List goals");
-        Console.WriteLine("  3. Save Goals");
-        Console.WriteLine("  4. Load Goals");
-        Console.WriteLine("  5. Record Events");
-        Console.WriteLine("  6. Quit");
-        Console.WriteLine("Select a choice from the menu: ")
+        // initializing a list for the goals to be stored and looped;
+        List<Goals> goal = new List<Goals>();
+        string quest()
+        {
+            Console.WriteLine("Menu Options");
+            Console.WriteLine("  1. Create New goal");
+            Console.WriteLine("  2. List goals");
+            Console.WriteLine("  3. Save Goals");
+            Console.WriteLine("  4. Load Goals");
+            Console.WriteLine("  5. Record Events");
+            Console.WriteLine("  6. Quit");
+            Console.WriteLine("Select a choice from the menu: ");
+            string ans = Console.ReadLine();
+            return ans;
+        }
+        string answer = quest();
+        if (int.Parse(answer) == 1)
+        {
+            Console.WriteLine("The types of Goals are:");
+            Console.WriteLine("    1. Simple Goal");
+            Console.WriteLine("    2. Eternal Goal");
+            Console.WriteLine("    1. Checklist Goal");
+            Console.WriteLine("which type of goal would you like to create? ");
+            string goalType = Console.ReadLine();
+
+
+            // Creating a function for the goal entry.
+            static string[] goalEntry()
+            {
+                Console.WriteLine("What is the name of your goal? ");
+                string goalName = Console.ReadLine();
+                Console.WriteLine("What is a short description for your goal? ");
+                string goalDesc = Console.ReadLine();
+                Console.WriteLine("What is the amount of points associated with this goal? ");
+                string goalPoints = Console.ReadLine();
+
+                // Returning lists of string values from the functions
+                return new string[]{
+                  goalName,
+                  goalDesc,
+                  goalPoints
+                };
+            }
+            if (int.Parse(goalType) == 1)
+            {
+                // storing the list returned values to be used as parameters inside the new goal instances
+                var goals = goalEntry();
+                string name = goals[0];
+                string desc = goals[1];
+                string points = goals[2];
+                Simple simpleGoal = new Simple(desc, name, int.Parse(points));
+                goal.Add(simpleGoal);
+            }
+            else if (int.Parse(goalType) == 2)
+            {
+                var goals = goalEntry();
+                string name = goals[0];
+                string desc = goals[1];
+                string points = goals[2];
+                Eternal eternal = new Eternal(desc, name, int.Parse(points));
+                goal.Add(eternal);
+            }
+            else if (int.Parse(goalType) == 3)
+            {
+                var goals = goalEntry();
+                string name = goals[0];
+                string desc = goals[1];
+                string points = goals[2];
+                Checklist checklist = new Checklist(desc, name, int.Parse(points));
+                goal.Add(checklist);
+            }
+        }
+        else if (int.Parse(answer) == 2)
+        {
+            if (goal.Count > 1)
+            {
+                int i = 0;
+                string uncheck = "[ ]";
+                string chkd = "[X]";
+                foreach (Goals g in goal)
+                {
+                    string n = g.getName();
+                    string d = g.getDesc();
+                    string p = g.getPoints();
+                    Console.WriteLine($"{i + 1}. {uncheck} {n}:({d})");
+                }
+            }
+            else
+            {
+                Console.WriteLine("List is empty");
+            }
+
+        }
+        else if (int.Parse(answer) == 3)
+        {
+            Console.WriteLine("Enter file name");
+            string _fileName = Console.ReadLine();
+            using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
+            {
+                foreach (Goals g in goal)
+                {
+                    outputFile.WriteLine(g);
+                }
+                // You can add text to the file with the WriteLine method
+            }
+
+
+        }
     }
 }
