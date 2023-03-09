@@ -63,7 +63,7 @@ class Program
                     string points = goals[2];
                     Simple simpleGoal = new Simple(desc, name, int.Parse(points));
                     goal.Add(simpleGoal);
-                    saved.Add($"{name}:({desc}){points}");
+                    saved.Add($"SimpleGoal {name} ({desc}){points}");
                 }
                 else if (int.Parse(goalType) == 2)
                 {
@@ -73,7 +73,7 @@ class Program
                     string points = goals[2];
                     Eternal eternal = new Eternal(desc, name, int.Parse(points));
                     goal.Add(eternal);
-                    saved.Add($"{name}:({desc}){points}");
+                    saved.Add($"EternalGoal {name} ({desc}){points}");
                 }
                 else if (int.Parse(goalType) == 3)
                 {
@@ -101,6 +101,10 @@ class Program
                         Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
                         
                     }
+                    foreach (string item in saved)
+                    {
+                        Console.WriteLine($" from saved {item}");
+                    }
                 }
                 else
                 {
@@ -119,11 +123,7 @@ class Program
                     string chkd = "[X]";
                     foreach (var g in saved)
                     {
-                        // string n = g.getName();
-                        // string d = g.getDesc();
-                        // string p = g.getPoints();
-                        outputFile.WriteLine(g.Split(","));
-                        // outputFile.WriteLine(g);
+                        outputFile.WriteLine(g);
                     }
                     // You can add text to the file with the WriteLine method
                 }
