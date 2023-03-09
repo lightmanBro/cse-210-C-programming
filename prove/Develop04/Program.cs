@@ -7,7 +7,7 @@ class Program
 
 
         Reflection reflect = new Reflection();
-         reflect.setActivity("Breathing Activity","This activity will help you to calm down and master the art of reflecting");
+         reflect.setActivity("Reflecting Activity","This activity will help you to calm down and master the art of reflecting");
         //Questions 
         string qone,qtwo,qthree,qfour;
         qone = ("Think of a time when you stood up for someone else");
@@ -27,7 +27,7 @@ class Program
         three = "How did you get started?";
         four = "How did you feel when it was complete?";
         five = "What made this time different than other times when you were not as successful?";
-        six = "What is your favorite thing about this experience?";
+        // six = "What is your favorite thing about this experience?";
         seven = "What is your favorite thing about this experience?";
         eight = "What did you learn about yourself through this experience?";
         nine = "How can you keep this experience in mind in the future?";
@@ -36,7 +36,7 @@ class Program
         reflect.addListsPrompt(three);
         reflect.addListsPrompt(four);
         reflect.addListsPrompt(five);
-        reflect.addListsPrompt(six);
+        // reflect.addListsPrompt(six);
         reflect.addListsPrompt(seven);
         reflect.addListsPrompt(eight);
         reflect.addListsPrompt(nine);
@@ -83,27 +83,34 @@ class Program
             string ans = Console.ReadLine();
             return ans;
         }
-        string ans = displayQ();
+       
+    bool replay = true;
 
+    while (replay)
+    {
+         string ans = displayQ();
         if (int.Parse(ans) == 1)
         {
             breathe.breathing();
-            Console.Clear();
+            // Console.Clear();
             displayQ();
         }
         else if (int.Parse(ans) == 2)
         {
             reflect.reflect();
-            Console.Clear();
+            // Console.Clear();
             displayQ();
         }
         else if (int.Parse(ans) == 3)
         {
             listen.listen();
-            Console.Clear();
+            // Console.Clear();
             displayQ();
         }else if(int.Parse(ans) == 4){
+            replay = false;
             return;
         }
+    }
+        
     }
 }
