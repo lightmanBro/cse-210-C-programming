@@ -118,9 +118,6 @@ class Program
                 string _fileName = Console.ReadLine();
                 using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
                 {
-                    int i = 0;
-                    string uncheck = "[ ]";
-                    string chkd = "[X]";
                     foreach (var g in saved)
                     {
                         outputFile.WriteLine(g);
@@ -135,7 +132,12 @@ class Program
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
-                    Console.WriteLine(line);
+                    string[] parts = line.Split(",");
+
+                    string firstName = parts[0].Split();
+                    // string lastName = parts[1];
+                    Console.WriteLine(firstName);
+                    // Console.WriteLine(lastName);
                 }
             }
         }
