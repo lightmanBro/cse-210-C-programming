@@ -16,11 +16,12 @@ class Program
         //         Console.WriteLine(pay);
         // }
 
-        string words = "public, void";
-        char[] sep = { ' ' };
-        string[] sub = words.Split(sep);
-        
-        Console.Write(sep.ToArray());
+        string exxampleString = "This is a test";
+        string[] substring = exxampleString.Split(" ");
+        foreach (string item in substring)
+        {
+            Console.WriteLine(item);
+        }
     // {
     //     Console.WriteLine("Enter file name");
     //     string _fileName = Console.ReadLine();

@@ -8,7 +8,8 @@ class Program
         // initializing a list for the goals to be stored and looped;
         List<Goals> goal = new List<Goals>();
         List<string> saved = new List<string>();
-
+        List<string> read = new List<string>();
+        List<int> totalPoint = new List<int>();
         string quest()
         {
             Console.WriteLine("Menu Options");
@@ -63,7 +64,7 @@ class Program
                     string points = goals[2];
                     Simple simpleGoal = new Simple(desc, name, int.Parse(points));
                     goal.Add(simpleGoal);
-                    saved.Add($"SimpleGoal {name} ({desc}){points}");
+                    saved.Add($"SimpleGoal {name}, ({desc}),{points}");
                 }
                 else if (int.Parse(goalType) == 2)
                 {
@@ -122,23 +123,37 @@ class Program
                     {
                         outputFile.WriteLine(g);
                     }
-                    // You can add text to the file with the WriteLine method
                 }
             }
             else if (int.Parse(answer) == 4)
             {
+                
 
-                string[] lines = System.IO.File.ReadAllLines("fileOne.txt");
+
+                string[] lines = System.IO.File.ReadAllLines("fileTwo.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
-                    string[] parts = line.Split(",");
+                    int total = 0;
+                    string[] substring = line.Split(",");
+                    string title = substring[0];
+                    string desc = substring[1];
+                    int points = int.Parse(substring[2]);
 
-                    string firstName = parts[0].Split();
-                    // string lastName = parts[1];
-                    Console.WriteLine(firstName);
-                    // Console.WriteLine(lastName);
+
+                    //Adding the values to the total points list
+                    totalPoint.Add(points);
+                    // Console.WriteLine(title);
+                    Console.WriteLine(total+=points);
+
+                    foreach (int item in totalPoint)
+                    {
+                        // Console.Clear();
+                        Console.WriteLine(total+=item);
+                    }
+                    // read.Add($"{line}");
                 }
+    
             }
         }
     }
