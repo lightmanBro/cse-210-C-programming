@@ -4,6 +4,7 @@ public abstract class Goals{
 
     private string _description;
     private int _points;
+    private int _completedTime;
 
     public Goals(string name,string desc, int points){
         _name = name;
@@ -12,6 +13,9 @@ public abstract class Goals{
     }
     public virtual void setName(string name){
 
+    }
+    public void setCompletedTime(int t){
+        _completedTime = t;
     }
 
     public virtual string getName(){
@@ -23,6 +27,10 @@ public abstract class Goals{
 
     public virtual string getPoints(){
         return _name;
+    }
+
+    public virtual int getCompletedTime(){
+        return _completedTime;
     }
     public abstract void recordEvents();
 

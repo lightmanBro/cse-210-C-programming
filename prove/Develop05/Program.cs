@@ -41,7 +41,6 @@ class Program
         }
         
         static string[] checkListQues(){
-
             Console.WriteLine("How many times does this goal need to be accomplished for a bonus");
             string bonusTime= Console.ReadLine();
             Console.WriteLine("What is the bonus for accomplishing it that many");
@@ -127,7 +126,7 @@ class Program
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(checklist);
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"CheckListGoal {name}:({desc}){points}");
+                    saved.Add($"CheckListGoal {name}:({desc}),{points},{accomplishBonus},0/{bonusTime}");
                 }
             }
 
@@ -143,7 +142,12 @@ class Program
                         string n = g.getName();
                         string d = g.getDesc();
                         string p = g.getPoints();
-                        Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
+                        int cT  = g.getCompletedTime();
+                        if(n == "SimpleGoal" || n == "EternalGoal"){
+                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
+                        }else{
+                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {i}/{cT}");
+                        }
 
                     }
                     foreach (string item in saved)
@@ -173,22 +177,16 @@ class Program
             }
             else if (int.Parse(answer) == 4)
             {
-                string[] lines = System.IO.File.ReadAllLines("fileTwo.txt");
+                string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
 
                     string[] substring = line.Split(",");
                     string title = substring[0];
-                    // string desc = substring[1];
-                    int points = int.Parse(substring[2]);
-
-
-                    //Adding the values to the total points list
-                    // totalPoint.Add(points);
-                    // Console.WriteLine(title);
-                    Console.WriteLine(points + points);
-                    // read.Add($"{line}");
+                    string desc = substring[1];
+                    string points = substring[2];
+                    Console.WriteLine(title,substring,points);
                 }
 
                 foreach (int item in totalPoint)
@@ -201,6 +199,21 @@ class Program
             }
             else if (int.Parse(answer) == 5) { 
 
+                string[] lines = System.IO.File.ReadAllLines("fileTwo.txt");
+                // looping through the contents of the file and printig it to the console.
+                foreach (string line in lines)
+                {
+
+                    string[] substring = line.Split(",");
+                    string title = substring[0];
+                    string desc = substring[1];
+                    int points = int.Parse(substring[2]);
+
+
+                    if(title == "SimpleGoal"){
+                        
+                    }
+                }
 
             }
         }
