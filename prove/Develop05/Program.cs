@@ -4,28 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        // initializing a list for the goals to be stored and looped;
+        List<Goals> goal = new List<Goals>();
+        //
+        List<string> saved = new List<string>();
+        List<string> read = new List<string>();
+        List<int> totalPoint = new List<int>();
+
+        //Initialized the total amount.
+        int total = 0;
         //initializing the total points
         int gainedPoints = 0;
         // Console.WriteLine("Hello Develop05 World!")
         Console.WriteLine($"You have {gainedPoints} points.");
         Console.WriteLine();
 
-        //This is the question function that will run when app starts.
-        string quest()
-        {
-            Console.WriteLine("Menu Options");
-            Console.WriteLine("  1. Create New goal");
-            Console.WriteLine("  2. List goals");
-            Console.WriteLine("  3. Save Goals");
-            Console.WriteLine("  4. Load Goals");
-            Console.WriteLine("  5. Record Events");
-            Console.WriteLine("  6. Quit");
-            Console.WriteLine("Select a choice from the menu: ");
-            string ans = Console.ReadLine();
-            return ans;
-        }
-        string answer;
-        answer = quest();
+        
 
         //The question to be run for every question.
         static string[] goalEntry()
@@ -57,20 +52,25 @@ class Program
             };
         }
 
-        // initializing a list for the goals to be stored and looped;
-        List<Goals> goal = new List<Goals>();
-        //
-        List<string> saved = new List<string>();
-        List<string> read = new List<string>();
-        List<int> totalPoint = new List<int>();
-
-        //Initialized the total amount.
-        int total = 0;
-
 
         while (true)
         {
-           
+           //This is the question function that will run when app starts.
+            string quest()
+            {
+                Console.WriteLine("Menu Options");
+                Console.WriteLine("  1. Create New goal");
+                Console.WriteLine("  2. List goals");
+                Console.WriteLine("  3. Save Goals");
+                Console.WriteLine("  4. Load Goals");
+                Console.WriteLine("  5. Record Events");
+                Console.WriteLine("  6. Quit");
+                Console.WriteLine("Select a choice from the menu: ");
+                string ans = Console.ReadLine();
+                return ans;
+            }
+            string answer;
+            answer = quest();
 
             if (int.Parse(answer) == 1)
             {
@@ -82,25 +82,18 @@ class Program
                 string goalType = Console.ReadLine();
 
                 //calling the goal entry function for the goal question and answer prompt;
-                
                 // storing the list returned values to be used as parameters inside the new goal instances
-                var goals = goalEntry();
-                string name = goals[0];
-                string desc = goals[1];
-                string points = goals[2];
-                Simple simpleGoal = new Simple(desc, name, int.Parse(points));
-                Eternal eternal = new Eternal(desc, name, int.Parse(points));
-
-                //The special question list for a checklist question.
-                var chkLst = checkListQues();
-                string bonusTime = chkLst[0];
-                string accomplishBonus = chkLst[1];
-                Checklist checklist = new Checklist(desc, name, int.Parse(points),int.Parse(bonusTime),int.Parse(accomplishBonus));
+                
 
                 //if 1 is entered
                 if (int.Parse(goalType) == 1)
                 {
+                    var goals = goalEntry();
+                    string name = goals[0];
+                    string desc = goals[1];
+                    string points = goals[2];
                     //If the goal type is simple
+                    Simple simpleGoal = new Simple(desc, name, int.Parse(points));
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(simpleGoal);
                     //Save it locally to the program and will be shown at the program runtime
@@ -108,7 +101,12 @@ class Program
                 }
                 else if (int.Parse(goalType) == 2)
                 {
+                    var goals = goalEntry();
+                    string name = goals[0];
+                    string desc = goals[1];
+                    string points = goals[2];
                     //If the goal type is Eternal
+                    Eternal eternal = new Eternal(desc, name, int.Parse(points));
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(eternal);
                     //Save it locally to the program and will be shown at the program runtime
@@ -116,7 +114,16 @@ class Program
                 }
                 else if (int.Parse(goalType) == 3)
                 {
+                    var goals = goalEntry();
+                    string name = goals[0];
+                    string desc = goals[1];
+                    string points = goals[2];
                     //If the goal type is Checklist
+                     //The special question list for a checklist question.
+                    var chkLst = checkListQues();
+                    string bonusTime = chkLst[0];
+                    string accomplishBonus = chkLst[1];
+                    Checklist checklist = new Checklist(desc, name, int.Parse(points),int.Parse(bonusTime),int.Parse(accomplishBonus));
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(checklist);
                     //Save it locally to the program and will be shown at the program runtime
@@ -128,8 +135,7 @@ class Program
             else if (int.Parse(answer) == 2)
             {
                 if (goal.Count > 0)
-                {
-                    //to add an index number in front of each goal stored
+                {//to add an index number in front of each goal stored
                     int i = 0;
                     string uncheck = "[ ]";
                     foreach (Goals g in goal)
@@ -167,9 +173,6 @@ class Program
             }
             else if (int.Parse(answer) == 4)
             {
-
-
-
                 string[] lines = System.IO.File.ReadAllLines("fileTwo.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
@@ -202,7 +205,4 @@ class Program
             }
         }
     }
-
-    
-
 }
