@@ -147,10 +147,12 @@ class Program
                         int cT = g.getCompletedTime();
                         if (n == "SimpleGoal" || n == "EternalGoal")
                         {
+                            //Show the goal in the console as unchecked
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
                         }
                         else
                         {
+                            //Show the goal in the console as unchecked
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {i}/{cT}");
                         }
 
@@ -172,6 +174,7 @@ class Program
             {
                 Console.WriteLine("Enter file name");
                 string _fileName = Console.ReadLine();
+                //the file extension is programmed already user just need to enter the name, this can be considerd as a simple creativity
                 using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
                 {
                     foreach (var g in saved)
@@ -182,7 +185,9 @@ class Program
             }
             else if (int.Parse(answer) == 4)
             {
-                string[] lines = System.IO.File.ReadAllLines("goals1.txt");
+                Console.WriteLine("Enter file name");
+                string _fileName = Console.ReadLine();
+                string[] lines = System.IO.File.ReadAllLines($"{_fileName}.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
@@ -232,6 +237,8 @@ class Program
                         Console.WriteLine();
                     }
                     Console.WriteLine("Which goal did you achieve");
+
+                    
                     //Checking if the condition is met then print this type of goal differently
                     // if (substring[0].Contains("EternalGoal") || substring[0].Contains("SimpleGoal"))
                     // {
