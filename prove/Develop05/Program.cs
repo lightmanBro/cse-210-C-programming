@@ -17,8 +17,7 @@ class Program
         //initializing the total points
         int gainedPoints = 0;
         // Console.WriteLine("Hello Develop05 World!")
-        Console.WriteLine($"You have {gainedPoints} points.");
-        Console.WriteLine();
+        
 
 
 
@@ -58,6 +57,8 @@ class Program
             //This is the question function that will run when app starts.
             string quest()
             {
+                Console.WriteLine($"You have {gainedPoints} points.");
+                Console.WriteLine();
                 Console.WriteLine("Menu Options");
                 Console.WriteLine("  1. Create New goal");
                 Console.WriteLine("  2. List goals");
@@ -190,6 +191,7 @@ class Program
                     string title = substring[0];
                     string desc = substring[1];
                     string points = substring[2];
+
                     Console.WriteLine(title);
                     Console.WriteLine(desc);
                     Console.WriteLine(points);
@@ -206,6 +208,11 @@ class Program
             else if (int.Parse(answer) == 5)
             {
 
+                int i = 0;
+                string check = "[√]";
+                Console.WriteLine("The goals are:");
+                
+
                 string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
@@ -215,25 +222,34 @@ class Program
                     string desc = substring[1];
                     string points = substring[2];
 
+                    //Printing the goals in the list to the console.
+                    Console.WriteLine($"{i+=1}. {desc}");
+                    string ans = Console.ReadLine();
+                    if(int.Parse(ans) == 1 && title == "SimpleGoal"){
+                        Console.WriteLine($"Congratulations! you have earned {points} points");
+                        Console.WriteLine($" You now have {points} points");
+                        gainedPoints=int.Parse(points);
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Which goal did you achieve");
                     //Checking if the condition is met then print this type of goal differently
-                    if (substring[0].Contains("EternalGoal") || substring[0].Contains("SimpleGoal"))
-                    {
-                        Console.WriteLine(title);
-                        Console.WriteLine(desc);
-                        Console.WriteLine(points);
-
-                    }
-                    //Checking if the condition is met then print this type of goal differently.
-                    else if (substring[0].Contains("CheckListGoal"))
-                    {
-                        string bonusPoint = substring[3];
-                        string timeCompleted = substring[4];
-                        Console.WriteLine(title);
-                        Console.WriteLine(desc);
-                        Console.WriteLine(points);
-                        Console.WriteLine(bonusPoint);
-                        Console.WriteLine(timeCompleted);
-                    }
+                    // if (substring[0].Contains("EternalGoal") || substring[0].Contains("SimpleGoal"))
+                    // {
+                    //     // Console.WriteLine(title);
+                    //     // Console.WriteLine(desc);
+                    //     // Console.WriteLine(points);
+                    // }
+                    // //Checking if the condition is met then print this type of goal differently.
+                    // else if (substring[0].Contains("CheckListGoal"))
+                    // {
+                    //     string bonusPoint = substring[3];
+                    //     string timeCompleted = substring[4];
+                    //     // Console.WriteLine(title);
+                    //     // Console.WriteLine(desc);
+                    //     // Console.WriteLine(points);
+                    //     // Console.WriteLine(bonusPoint);
+                    //     // Console.WriteLine(timeCompleted);
+                    // }
                 }
 
             }
