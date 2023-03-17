@@ -20,7 +20,7 @@ class Program
         Console.WriteLine($"You have {gainedPoints} points.");
         Console.WriteLine();
 
-        
+
 
         //The question to be run for every question.
         static string[] goalEntry()
@@ -39,12 +39,13 @@ class Program
                   goalPoints
                 };
         }
-        
-        static string[] checkListQues(){
+
+        static string[] checkListQues()
+        {
             Console.WriteLine("How many times does this goal need to be accomplished for a bonus");
-            string bonusTime= Console.ReadLine();
+            string bonusTime = Console.ReadLine();
             Console.WriteLine("What is the bonus for accomplishing it that many");
-            string accomplishBonus= Console.ReadLine();
+            string accomplishBonus = Console.ReadLine();
             return new string[]{
                 bonusTime,
                 accomplishBonus
@@ -54,7 +55,7 @@ class Program
 
         while (true)
         {
-           //This is the question function that will run when app starts.
+            //This is the question function that will run when app starts.
             string quest()
             {
                 Console.WriteLine("Menu Options");
@@ -82,7 +83,7 @@ class Program
 
                 //calling the goal entry function for the goal question and answer prompt;
                 // storing the list returned values to be used as parameters inside the new goal instances
-                
+
 
                 //if 1 is entered
                 if (int.Parse(goalType) == 1)
@@ -96,7 +97,7 @@ class Program
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(simpleGoal);
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"SimpleGoal {name}, ({desc}),{points}");
+                    saved.Add($"SimpleGoal, {name}, ({desc}),{points}");
                 }
                 else if (int.Parse(goalType) == 2)
                 {
@@ -109,7 +110,7 @@ class Program
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(eternal);
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"EternalGoal {name}, ({desc}),{points}");
+                    saved.Add($"EternalGoal, {name}, ({desc}),{points}");
                 }
                 else if (int.Parse(goalType) == 3)
                 {
@@ -118,15 +119,15 @@ class Program
                     string desc = goals[1];
                     string points = goals[2];
                     //If the goal type is Checklist
-                     //The special question list for a checklist question.
+                    //The special question list for a checklist question.
                     var chkLst = checkListQues();
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
-                    Checklist checklist = new Checklist(desc, name, int.Parse(points),int.Parse(bonusTime),int.Parse(accomplishBonus));
+                    Checklist checklist = new Checklist(desc, name, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus));
                     //Add the goal to a list for it to be saved outside the program.
                     goal.Add(checklist);
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"CheckListGoal {name}:({desc}),{points},{accomplishBonus},0/{bonusTime}");
+                    saved.Add($"CheckListGoal, {name},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
                 }
             }
 
@@ -142,10 +143,13 @@ class Program
                         string n = g.getName();
                         string d = g.getDesc();
                         string p = g.getPoints();
-                        int cT  = g.getCompletedTime();
-                        if(n == "SimpleGoal" || n == "EternalGoal"){
+                        int cT = g.getCompletedTime();
+                        if (n == "SimpleGoal" || n == "EternalGoal")
+                        {
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
-                        }else{
+                        }
+                        else
+                        {
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {i}/{cT}");
                         }
 
@@ -186,7 +190,9 @@ class Program
                     string title = substring[0];
                     string desc = substring[1];
                     string points = substring[2];
-                    Console.WriteLine(title,substring,points);
+                    Console.WriteLine(title);
+                    Console.WriteLine(desc);
+                    Console.WriteLine(points);
                 }
 
                 foreach (int item in totalPoint)
@@ -197,21 +203,36 @@ class Program
                 }
 
             }
-            else if (int.Parse(answer) == 5) { 
+            else if (int.Parse(answer) == 5)
+            {
 
-                string[] lines = System.IO.File.ReadAllLines("fileTwo.txt");
+                string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
-
                     string[] substring = line.Split(",");
                     string title = substring[0];
                     string desc = substring[1];
-                    int points = int.Parse(substring[2]);
+                    string points = substring[2];
 
+                    //Checking if the condition is met then print this type of goal differently
+                    if (substring[0].Contains("EternalGoal") || substring[0].Contains("SimpleGoal"))
+                    {
+                        Console.WriteLine(title);
+                        Console.WriteLine(desc);
+                        Console.WriteLine(points);
 
-                    if(title == "SimpleGoal"){
-                        
+                    }
+                    //Checking if the condition is met then print this type of goal differently.
+                    else if (substring[0].Contains("CheckListGoal"))
+                    {
+                        string bonusPoint = substring[3];
+                        string timeCompleted = substring[4];
+                        Console.WriteLine(title);
+                        Console.WriteLine(desc);
+                        Console.WriteLine(points);
+                        Console.WriteLine(bonusPoint);
+                        Console.WriteLine(timeCompleted);
                     }
                 }
 
