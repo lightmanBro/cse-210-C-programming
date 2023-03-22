@@ -5,8 +5,8 @@ public class Simple:Goals{
 
     }
 
-    public override void recordEvents()
+    public override string recordEvents()
     {
-        
+        return $"{_goalName}";
     }
 }

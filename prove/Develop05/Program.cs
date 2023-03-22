@@ -217,6 +217,8 @@ class Program
                 Console.WriteLine("The goals are:");
                 string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
+
+                
                 foreach (string line in lines)
                 {
                     string[] substring = line.Split(",");
@@ -226,7 +228,7 @@ class Program
 
                     //Printing the goals in the list to the console.
                     Console.WriteLine($"{i+=1}. {desc}");
-                    // string ans = Console.ReadLine();
+                    string ans = Console.ReadLine();
                     // if(int.Parse(ans) == i){
                     //     Console.WriteLine($"Congratulations! you have earned {points} points");
                     //     Console.WriteLine($" You now have {points} points");
@@ -234,7 +236,7 @@ class Program
                     //     Console.WriteLine();
                     // }
                 }
-                // Console.WriteLine("Which goal did you achieve");
+                
 
             }
         }
