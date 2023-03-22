@@ -1,5 +1,4 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
@@ -15,14 +14,9 @@ class Program
         //         float pay = employee.calculatePay();
         //         Console.WriteLine(pay);
         // }
-
-        string exxampleString = "This is a test";
-        string[] substring = exxampleString.Split(" ");
-        foreach (string item in substring)
-        {
-            Console.WriteLine(item);
-        }
-    // {
+        Employee employee = new Employee();
+        
+        
     //     Console.WriteLine("Enter file name");
     //     string _fileName = Console.ReadLine();
     //     // to add a file as a json file then the AddRange() should be used.
@@ -44,7 +38,8 @@ class Program
 
     public class Employee{
 
-       private float salary = 100f;
+       private float salary {get;set;}
+
 
        public virtual float calculatePay(){
             return salary;

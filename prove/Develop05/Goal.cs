@@ -32,6 +32,6 @@ public abstract class Goals{
     public virtual int getCompletedTime(){
         return _completedTime;
     }
-    public abstract void recordEvents();
+    public abstract string recordEvents();
 
 }

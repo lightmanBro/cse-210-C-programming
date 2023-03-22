@@ -212,12 +212,9 @@ class Program
             }
             else if (int.Parse(answer) == 5)
             {
-
                 int i = 0;
                 string check = "[√]";
                 Console.WriteLine("The goals are:");
-                
-
                 string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
@@ -229,35 +226,15 @@ class Program
 
                     //Printing the goals in the list to the console.
                     Console.WriteLine($"{i+=1}. {desc}");
-                    string ans = Console.ReadLine();
-                    if(int.Parse(ans) == 1 && title == "SimpleGoal"){
-                        Console.WriteLine($"Congratulations! you have earned {points} points");
-                        Console.WriteLine($" You now have {points} points");
-                        gainedPoints=int.Parse(points);
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine("Which goal did you achieve");
-
-                    
-                    //Checking if the condition is met then print this type of goal differently
-                    // if (substring[0].Contains("EternalGoal") || substring[0].Contains("SimpleGoal"))
-                    // {
-                    //     // Console.WriteLine(title);
-                    //     // Console.WriteLine(desc);
-                    //     // Console.WriteLine(points);
-                    // }
-                    // //Checking if the condition is met then print this type of goal differently.
-                    // else if (substring[0].Contains("CheckListGoal"))
-                    // {
-                    //     string bonusPoint = substring[3];
-                    //     string timeCompleted = substring[4];
-                    //     // Console.WriteLine(title);
-                    //     // Console.WriteLine(desc);
-                    //     // Console.WriteLine(points);
-                    //     // Console.WriteLine(bonusPoint);
-                    //     // Console.WriteLine(timeCompleted);
+                    // string ans = Console.ReadLine();
+                    // if(int.Parse(ans) == i){
+                    //     Console.WriteLine($"Congratulations! you have earned {points} points");
+                    //     Console.WriteLine($" You now have {points} points");
+                    //     gainedPoints=int.Parse(points);
+                    //     Console.WriteLine();
                     // }
                 }
+                // Console.WriteLine("Which goal did you achieve");
 
             }
         }
