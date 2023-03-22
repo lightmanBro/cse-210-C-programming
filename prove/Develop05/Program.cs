@@ -94,9 +94,8 @@ class Program
                     string desc = goals[1];
                     string points = goals[2];
                     //If the goal type is simple
-                    Simple simpleGoal = new Simple(desc, name, int.Parse(points));
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(simpleGoal);
+                    goal.Add(new Simple(desc, name, int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"SimpleGoal, {name}, ({desc}),{points}");
                 }
@@ -107,9 +106,8 @@ class Program
                     string desc = goals[1];
                     string points = goals[2];
                     //If the goal type is Eternal
-                    Eternal eternal = new Eternal(desc, name, int.Parse(points));
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(eternal);
+                    goal.Add(new Eternal(desc, name, int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"EternalGoal, {name}, ({desc}),{points}");
                 }
@@ -124,9 +122,8 @@ class Program
                     var chkLst = checkListQues();
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
-                    Checklist checklist = new Checklist(desc, name, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus));
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(checklist);
+                    goal.Add(new Checklist(desc, name, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"CheckListGoal, {name},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
                 }
@@ -225,10 +222,9 @@ class Program
                     string title = substring[0];
                     string desc = substring[1];
                     string points = substring[2];
-
                     //Printing the goals in the list to the console.
                     Console.WriteLine($"{i+=1}. {desc}");
-                    string ans = Console.ReadLine();
+                    // string ans = Console.ReadLine();
                     // if(int.Parse(ans) == i){
                     //     Console.WriteLine($"Congratulations! you have earned {points} points");
                     //     Console.WriteLine($" You now have {points} points");
