@@ -6,7 +6,7 @@ class Program
     {
 
         // initializing a list for the goals to be stored and looped;
-        List<Goals> goal = new List<Goals>();
+        List<Goals> goals = new List<Goals>();
         //
         List<string> saved = new List<string>();
         List<string> read = new List<string>();
@@ -89,60 +89,60 @@ class Program
                 //if 1 is entered
                 if (int.Parse(goalType) == 1)
                 {
-                    var goals = goalEntry();
-                    string name = goals[0];
-                    string desc = goals[1];
-                    string points = goals[2];
+                    var goal = goalEntry();
+                    string goalName = goal[0];
+                    string desc = goal[1];
+                    string points = goal[2];
                     //If the goal type is simple
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(new Simple(desc, name, int.Parse(points)));
+                    goals.Add(new Simple(desc, goalName, int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"SimpleGoal, {name}, ({desc}),{points}");
+                    saved.Add($"SimpleGoal, {goalName}, ({desc}),{points}");
                 }
                 else if (int.Parse(goalType) == 2)
                 {
-                    var goals = goalEntry();
-                    string name = goals[0];
-                    string desc = goals[1];
-                    string points = goals[2];
+                    var goal = goalEntry();
+                    string goalName = goal[0];
+                    string desc = goal[1];
+                    string points = goal[2];
                     //If the goal type is Eternal
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(new Eternal(desc, name, int.Parse(points)));
+                    goals.Add(new Eternal(desc, goalName, int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"EternalGoal, {name}, ({desc}),{points}");
+                    saved.Add($"EternalGoal, {goalName}, ({desc}),{points}");
                 }
                 else if (int.Parse(goalType) == 3)
                 {
-                    var goals = goalEntry();
-                    string name = goals[0];
-                    string desc = goals[1];
-                    string points = goals[2];
+                    var goal = goalEntry();
+                    string goalName = goal[0];
+                    string desc = goal[1];
+                    string points = goal[2];
                     //If the goal type is Checklist
                     //The special question list for a checklist question.
                     var chkLst = checkListQues();
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
                     //Add the goal to a list for it to be saved outside the program.
-                    goal.Add(new Checklist(desc, name, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
+                    goals.Add(new Checklist(desc, goalName, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
                     //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"CheckListGoal, {name},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
+                    saved.Add($"CheckListGoal, {goalName},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
                 }
             }
 
             //if 2 is entered
             else if (int.Parse(answer) == 2)
             {
-                if (goal.Count > 0)
+                
+                if (goals.Count > 0)
                 {//to add an index number in front of each goal stored
                     int i = 0;
                     string uncheck = "[ ]";
-                    foreach (Goals g in goal)
+                    foreach (Goals g in goals)
                     {
                         string n = g.getName();
                         string d = g.getDesc();
                         string p = g.getPoints();
-                        int cT = g.getCompletedTime();
-                        if (n == "SimpleGoal" || n == "EternalGoal")
+                        if (n == "Simple" || n == "Eternal")
                         {
                             //Show the goal in the console as unchecked
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
@@ -150,14 +150,15 @@ class Program
                         else
                         {
                             //Show the goal in the console as unchecked
-                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {i}/{cT}");
+                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {0}/{cT}");
                         }
 
                     }
-                    foreach (string item in saved)
+                    foreach (Goals goal in goals)
                     {
-                        Console.WriteLine($" from saved {item}");
+                        goal.display();
                     }
+                
                 }
                 else
                 {
@@ -166,7 +167,7 @@ class Program
 
             }
 
-            //If 3 is entered
+            //If 3 is entered then ask user to save the goals to an external file
             else if (int.Parse(answer) == 3)
             {
                 Console.WriteLine("Enter file name");
@@ -180,6 +181,8 @@ class Program
                     }
                 }
             }
+
+            //if answer = 4, then display the goals saved to the external text file.
             else if (int.Parse(answer) == 4)
             {
                 Console.WriteLine("Enter file name");
@@ -199,39 +202,13 @@ class Program
                     Console.WriteLine(points);
                 }
 
-                foreach (int item in totalPoint)
-                {
-                    // Console.Clear();
-                    Console.Write("\b \b");
-                    Console.WriteLine(total += item);
-                }
-
             }
             else if (int.Parse(answer) == 5)
             {
-                int i = 0;
-                string check = "[√]";
+                
                 Console.WriteLine("The goals are:");
                 string[] lines = System.IO.File.ReadAllLines("goals1.txt");
                 // looping through the contents of the file and printig it to the console.
-
-                
-                foreach (string line in lines)
-                {
-                    string[] substring = line.Split(",");
-                    string title = substring[0];
-                    string desc = substring[1];
-                    string points = substring[2];
-                    //Printing the goals in the list to the console.
-                    Console.WriteLine($"{i+=1}. {desc}");
-                    // string ans = Console.ReadLine();
-                    // if(int.Parse(ans) == i){
-                    //     Console.WriteLine($"Congratulations! you have earned {points} points");
-                    //     Console.WriteLine($" You now have {points} points");
-                    //     gainedPoints=int.Parse(points);
-                    //     Console.WriteLine();
-                    // }
-                }
                 
 
             }
