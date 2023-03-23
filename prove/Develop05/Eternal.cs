@@ -1,7 +1,8 @@
 public class Eternal:Goals{
 
     private string _goalName= "Eternal";
-    public Eternal(string desc,string name,int points):base(name,desc,points){}
+    public Eternal(string desc,string name,int points):base(name,desc,points){
+    }
 
     private string goalName(){
         return _goalName;

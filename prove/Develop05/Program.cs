@@ -95,7 +95,7 @@ class Program
                     string points = goal[2];
                     //If the goal type is simple
                     //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Simple(desc, goalName, int.Parse(points)));
+                    goals.Add(new Simple(desc, "SImple", int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"SimpleGoal, {goalName}, ({desc}),{points}");
                 }
@@ -107,7 +107,7 @@ class Program
                     string points = goal[2];
                     //If the goal type is Eternal
                     //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Eternal(desc, goalName, int.Parse(points)));
+                    goals.Add(new Eternal(desc, "Eternal", int.Parse(points)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"EternalGoal, {goalName}, ({desc}),{points}");
                 }
@@ -123,7 +123,7 @@ class Program
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
                     //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Checklist(desc, goalName, int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
+                    goals.Add(new Checklist(desc, "Checklist", int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
                     //Save it locally to the program and will be shown at the program runtime
                     saved.Add($"CheckListGoal, {goalName},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
                 }
@@ -147,10 +147,10 @@ class Program
                             //Show the goal in the console as unchecked
                             Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
                         }
-                        else
+                        else if(n == "Checklist")
                         {
                             //Show the goal in the console as unchecked
-                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {0}/{cT}");
+                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {0}/{g.getCompletedTime()}");
                         }
 
                     }

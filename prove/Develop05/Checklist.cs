@@ -5,12 +5,11 @@ public class Checklist:Goals{
     private int _completedTime = 0;
 
     public Checklist(string desc,string name,int points,int _bonusTime, int _accomplishBonus):base(name,desc,points){
-        
     }
     
     public override void display()
     {
-        Console.WriteLine($"{this.getName()}, {this.getDesc()}, {this.getPoints()},{this.getCompletedTime()}/{this._bonusTime}");
+        Console.WriteLine($"{this.getName()}, {this.getDesc()} {this.getCompletedTime()}");
     }
 
     public override int getCompletedTime(){
