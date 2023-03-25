@@ -7,13 +7,7 @@ class Program
 
         // initializing a list for the goals to be stored and looped;
         List<Goals> goals = new List<Goals>();
-        //
-        List<string> saved = new List<string>();
-        List<string> read = new List<string>();
-        List<int> totalPoint = new List<int>();
-
-        //Initialized the total amount.
-        int total = 0;
+        
         //initializing the total points
         int gainedPoints = 0;
         // Console.WriteLine("Hello Develop05 World!")
@@ -93,11 +87,9 @@ class Program
                     string goalName = goal[0];
                     string desc = goal[1];
                     string points = goal[2];
-                    //If the goal type is simple
-                    //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Simple(desc, "SImple", int.Parse(points)));
-                    //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"SimpleGoal, {goalName}, ({desc}),{points}");
+                    //Use the getter and setter methods on the base class
+                    // add the goal to the goal list.
+                    goals.Add();
                 }
                 else if (int.Parse(goalType) == 2)
                 {
@@ -105,11 +97,9 @@ class Program
                     string goalName = goal[0];
                     string desc = goal[1];
                     string points = goal[2];
-                    //If the goal type is Eternal
-                    //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Eternal(desc, "Eternal", int.Parse(points)));
-                    //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"EternalGoal, {goalName}, ({desc}),{points}");
+                    //Use the getter and setter methods on the base class
+                    // add the goal to the goal list.
+                    goals.Add();
                 }
                 else if (int.Parse(goalType) == 3)
                 {
@@ -122,49 +112,17 @@ class Program
                     var chkLst = checkListQues();
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
-                    //Add the goal to a list for it to be saved outside the program.
-                    goals.Add(new Checklist(desc, "Checklist", int.Parse(points), int.Parse(bonusTime), int.Parse(accomplishBonus)));
-                    //Save it locally to the program and will be shown at the program runtime
-                    saved.Add($"CheckListGoal, {goalName},:({desc}),{points},{accomplishBonus},0/{bonusTime}");
+                    //Use the getter and setter methods on the base class then save it to a list so that it can be pushed out to an external file.
+                    // add the goal to the goal list.
+                    goals.Add();
                 }
             }
 
             //if 2 is entered
             else if (int.Parse(answer) == 2)
             {
-                
-                if (goals.Count > 0)
-                {//to add an index number in front of each goal stored
-                    int i = 0;
-                    string uncheck = "[ ]";
-                    foreach (Goals g in goals)
-                    {
-                        string n = g.getName();
-                        string d = g.getDesc();
-                        string p = g.getPoints();
-                        if (n == "Simple" || n == "Eternal")
-                        {
-                            //Show the goal in the console as unchecked
-                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})");
-                        }
-                        else if(n == "Checklist")
-                        {
-                            //Show the goal in the console as unchecked
-                            Console.WriteLine($"{i += 1}. {uncheck} {n}:({d})--currently completed: {0}/{g.getCompletedTime()}");
-                        }
-
-                    }
-                    foreach (Goals goal in goals)
-                    {
-                        goal.display();
-                    }
-                
-                }
-                else
-                {
-                    Console.WriteLine("List is empty");
-                }
-
+               // loop theough all the goals inside the list and use the display method on each of them
+             
             }
 
             //If 3 is entered then ask user to save the goals to an external file
@@ -175,7 +133,7 @@ class Program
                 //the file extension is programmed already user just need to enter the name, this can be considerd as a simple creativity
                 using (StreamWriter outputFile = new StreamWriter($"{_fileName}.txt"))
                 {
-                    foreach (var g in saved)
+                    foreach (var g in goals)
                     {
                         outputFile.WriteLine(g);
                     }
@@ -191,27 +149,41 @@ class Program
                 // looping through the contents of the file and printig it to the console.
                 foreach (string line in lines)
                 {
-
-                    string[] substring = line.Split(",");
-                    string title = substring[0];
-                    string desc = substring[1];
-                    string points = substring[2];
-
-                    Console.WriteLine(title);
-                    Console.WriteLine(desc);
-                    Console.WriteLine(points);
+                    Console.WriteLine(line);
                 }
 
             }
             else if (int.Parse(answer) == 5)
             {
-                
-                Console.WriteLine("The goals are:");
-                string[] lines = System.IO.File.ReadAllLines("goals1.txt");
+                string[] lines = System.IO.File.ReadAllLines("goalsOne.txt");
                 // looping through the contents of the file and printig it to the console.
-                
+                Console.WriteLine("The goals are");
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    string[] substring = line.Split(",");
+                    string goaltitle = substring[0];
+                    string title = substring[1];
+                    string desc = substring[2];
+                    int points = int.Parse(substring[3]);
+                    int bonusPoint = int.Parse(substring[4]);
+                    int compltdTime = int.Parse(substring[5]);
 
+                    Console.WriteLine($"{i+1}. {title}");
+
+
+                    // if(title =="CheckListGoal"){
+
+                    // }
+                }
+                Console.WriteLine("Which goal did you accomplish?");
+                String ans = Console.ReadLine();
+                
             }
         }
+    void displayGoal(Goals goal){
+                //use all the getter functions on the goals to display all the properties of each classes.
+                Console.WriteLine($"{goal.getName()}");
+             }
     }
 }
