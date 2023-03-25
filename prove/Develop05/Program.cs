@@ -83,46 +83,62 @@ class Program
                 //if 1 is entered
                 if (int.Parse(goalType) == 1)
                 {
+                    Simple simple = new Simple();
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
-                    string points = goal[2];
+                    int points = int.Parse(goal[2]);
+                    simple.setName(goalName);
+                    simple.setDesc(desc);
+                    simple.setPoints(points);
                     //Use the getter and setter methods on the base class
                     // add the goal to the goal list.
-                    goals.Add();
+                    goals.Add(simple);
                 }
                 else if (int.Parse(goalType) == 2)
                 {
+                    Eternal eternal = new Eternal();
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
-                    string points = goal[2];
+                    int points = int.Parse(goal[2]);
+                    eternal.setName(goalName);
+                    eternal.setDesc(desc);
+                    eternal.setPoints(points);
                     //Use the getter and setter methods on the base class
                     // add the goal to the goal list.
-                    goals.Add();
+                    goals.Add(eternal);
                 }
                 else if (int.Parse(goalType) == 3)
                 {
+                    Checklist checklist = new Checklist();
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
-                    string points = goal[2];
                     //If the goal type is Checklist
                     //The special question list for a checklist question.
                     var chkLst = checkListQues();
                     string bonusTime = chkLst[0];
                     string accomplishBonus = chkLst[1];
+                    int points = int.Parse(goal[2]);
+                    checklist.setName(goalName);
+                    checklist.setDesc(desc);
+                    checklist.setPoints(points);
                     //Use the getter and setter methods on the base class then save it to a list so that it can be pushed out to an external file.
                     // add the goal to the goal list.
-                    goals.Add();
+                    goals.Add(checklist);
                 }
             }
 
             //if 2 is entered
             else if (int.Parse(answer) == 2)
             {
-               // loop theough all the goals inside the list and use the display method on each of them
-             
+                // loop through all the goals inside the list and use the display method on each of them.
+                foreach (var g in goals)
+                {
+                    //call the display method on each of the goals
+                    g.display();
+                }
             }
 
             //If 3 is entered then ask user to save the goals to an external file
@@ -170,11 +186,7 @@ class Program
                     int compltdTime = int.Parse(substring[5]);
 
                     Console.WriteLine($"{i+1}. {title}");
-
-
-                    // if(title =="CheckListGoal"){
-
-                    // }
+                    // if(){}
                 }
                 Console.WriteLine("Which goal did you accomplish?");
                 String ans = Console.ReadLine();

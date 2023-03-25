@@ -10,17 +10,23 @@ public abstract class Goals{
     public virtual void setName(string name){
 
     }
+    public virtual string getName(){
+        return _name;
+    }
     public void setCompletedTime(int t){
         _completedTime = t;
     }
 
-    public virtual string getName(){
-        return _name;
+    public void setDesc(string desc){
+        _description = desc;
     }
     public virtual string getDesc(){
         return _description;
     }
 
+    public void setPoints(int point){
+        _points = point;
+    }
     public virtual string getPoints(){
         return _name;
     }
