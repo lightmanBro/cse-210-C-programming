@@ -7,7 +7,9 @@ class Program
 
         // initializing a list for the goals to be stored and looped;
         List<Goals> goals = new List<Goals>();
-        
+        Simple simple = new Simple();
+        Eternal eternal = new Eternal();
+        Checklist checklist = new Checklist();
         //initializing the total points
         int gainedPoints = 0;
         // Console.WriteLine("Hello Develop05 World!")
@@ -83,7 +85,6 @@ class Program
                 //if 1 is entered
                 if (int.Parse(goalType) == 1)
                 {
-                    Simple simple = new Simple();
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
@@ -94,10 +95,11 @@ class Program
                     //Use the getter and setter methods on the base class
                     // add the goal to the goal list.
                     goals.Add(simple);
+                    Console.WriteLine(simple.getDesc());
                 }
                 else if (int.Parse(goalType) == 2)
                 {
-                    Eternal eternal = new Eternal();
+                    
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
@@ -111,7 +113,7 @@ class Program
                 }
                 else if (int.Parse(goalType) == 3)
                 {
-                    Checklist checklist = new Checklist();
+                    
                     var goal = goalEntry();
                     string goalName = goal[0];
                     string desc = goal[1];
@@ -126,6 +128,7 @@ class Program
                     checklist.setPoints(points);
                     //Use the getter and setter methods on the base class then save it to a list so that it can be pushed out to an external file.
                     // add the goal to the goal list.
+                    
                     goals.Add(checklist);
                 }
             }
@@ -134,11 +137,9 @@ class Program
             else if (int.Parse(answer) == 2)
             {
                 // loop through all the goals inside the list and use the display method on each of them.
-                foreach (var g in goals)
-                {
-                    //call the display method on each of the goals
-                    g.display();
-                }
+                displayGoal(simple);
+                displayGoal(eternal);
+                displayGoal(checklist);
             }
 
             //If 3 is entered then ask user to save the goals to an external file
