@@ -4,9 +4,9 @@ public class Checklist:Goals{
     private int _accomplishBonus;
     private int _completedTime = 0;
 
-    public override void display()
+    public override string display()
     {
-        Console.WriteLine($"{this.getName()}, {this.getDesc()} {this.getCompletedTime()}");
+        return $"{this.getName()}, {this.getDesc()} {this.getCompletedTime()}";
     }
 
     public override int getCompletedTime(){

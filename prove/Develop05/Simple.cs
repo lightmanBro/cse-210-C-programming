@@ -1,9 +1,9 @@
 public class Simple:Goals{
 
     private string _goalName = "Simple";
-    public override void display()
+    public override string display()
     {
-        Console.WriteLine($"{_goalName}, {this.getName()}, {this.getDesc()}");
+        return $"{getName()}, {getDesc()}";
     }
     public override string recordEvents(){
 

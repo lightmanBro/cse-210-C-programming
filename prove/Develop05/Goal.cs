@@ -8,7 +8,7 @@ public abstract class Goals{
 
     public Goals(){ }
     public virtual void setName(string name){
-
+        _name = name;
     }
     public virtual string getName(){
         return _name;
@@ -34,7 +34,7 @@ public abstract class Goals{
     public virtual int getCompletedTime(){
         return _completedTime;
     }
-    public abstract void display();
+    public abstract string display();
     public abstract string recordEvents();
 
 }

@@ -1,9 +1,9 @@
 public class Eternal:Goals{
 
     
-    public override void display()
+    public override string display()
     {
-        Console.WriteLine($"{this.getName()}, {this.getDesc()}, {this.getPoints()}");
+        return $"{getName()}, {getDesc()}, {getPoints()}";
     }
     public override string recordEvents(){
 

@@ -95,7 +95,7 @@ class Program
                     //Use the getter and setter methods on the base class
                     // add the goal to the goal list.
                     goals.Add(simple);
-                    Console.WriteLine(simple.getDesc());
+                    Console.WriteLine(simple.display());
                 }
                 else if (int.Parse(goalType) == 2)
                 {
@@ -110,6 +110,7 @@ class Program
                     //Use the getter and setter methods on the base class
                     // add the goal to the goal list.
                     goals.Add(eternal);
+                     Console.WriteLine(eternal.getName());
                 }
                 else if (int.Parse(goalType) == 3)
                 {
@@ -137,9 +138,7 @@ class Program
             else if (int.Parse(answer) == 2)
             {
                 // loop through all the goals inside the list and use the display method on each of them.
-                displayGoal(simple);
-                displayGoal(eternal);
-                displayGoal(checklist);
+                
             }
 
             //If 3 is entered then ask user to save the goals to an external file
