@@ -11,8 +11,21 @@ public class Video{
         _length = length;
     }
 
+    public void addComentsToList(string c){
+        comments.Add(c);
+    }
     public int commentCount(string comment){
+        return comments.Count();
+    }
 
-        return comment.Count();
+    public void displayVideo(){
+        Console.WriteLine(_title);
+        Console.WriteLine(_author);
+        Console.WriteLine(_length);
+
+        foreach (var com in comments)
+        {
+            Console.WriteLine(com);
+        }
     }
 }

@@ -3,8 +3,8 @@ public class Comments{
     public string _commenterName;
     public string _comments;
 
-    public Comments(string name,string comment){
-        _commenterName = name;
-        _comments = comment;
+    public string addComments(string name,string com){
+
+        return $"{name.ToUpper()} commented:{com}";
     }
 }
