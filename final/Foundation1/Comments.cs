@@ -4,7 +4,7 @@ public class Comments{
     public string _comments;
 
     public string addComments(string name,string com){
-
-        return $"{name.ToUpper()} commented:{com}";
+       
+        return $"{name} comment: {com}";
     }
 }
