@@ -16,18 +16,14 @@ public class Address{
 
     //Get the customer's address
     public string getAddress(){
-        return $"{_street},{_city},{_state}{checkUSA(_province)},{_country}";
-    }
-
-    //Check if the customer is living in the united state.
-    public string checkUSA(string province){
-
-        //Write a logic to know if the customer lives in the USA
-        //if province is "" empty then the customer is not living in the USA.
-        if(province == ""){
-            Console.WriteLine("Not living in the USA");
+        string add;
+        //Check if the customer is living in the united state.
+        if(_province == ""){
+            add = $"{_street},{_city},{_state},{_country}";
+        }else{
+            add = $"{_street},{_city},{_state}{_province} ,{_country}";
         }
-        return province;
+        return add;
     }
-
+    
 }
