@@ -34,7 +34,6 @@ class Program
 
         //Add the videos to the video list so they can be looped and worked on.
         videos.Add(video1);
-     
         videos.Add(video2);
         videos.Add(video3);
 

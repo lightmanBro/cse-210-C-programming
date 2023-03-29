@@ -1,11 +1,24 @@
 public class Customer{
 
     private string _name;
-    List<Address> _address = new List<Address>();
+    private string _address;
 
-    public string address(){
+    //Setting the name
+    public void setname(string name){
+        _name = name;
+    }
 
-        return
+    //Getting the name
+    public string getName(){
+        return _name;
+    }
+    //Add address
+    public void addAddress(string add){
+        _address = add;
+    }
+    public string getAddress(string addr){
+
+        return _address;
     }
 
 
