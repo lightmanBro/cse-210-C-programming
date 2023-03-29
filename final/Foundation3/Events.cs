@@ -5,7 +5,8 @@ public class Event{
     private string _eventAddress;
 
 
-    public void standardDetails(){
-        
+    public string standardDetails(){
+        string details = $"Event: {_eventTitle}\n{_eventDesc}\n{_eventDate}\n{_eventAddress}";
+        return details;
     }
 }
