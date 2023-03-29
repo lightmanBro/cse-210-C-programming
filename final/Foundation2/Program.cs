@@ -25,8 +25,6 @@ class Program
         order1.setCustAdd(add.getFullAdd());
         //The getAddress method of the add(Address) returns a string USA which will be set as the customers add if its USA or not;
         order1.checkAdd(add.getAddressUSA());
-        
-        // order1.calculateTotalOrderCost(add.getAddressUSA());
         //The fuction to print the order to the console.
         order1.order();
     }
