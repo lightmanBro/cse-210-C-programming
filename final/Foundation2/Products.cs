@@ -11,6 +11,9 @@ public class Products{
         _price = price;
         _productQty = qty;
     }
+    public string packingLabel(){
+        return $"Product Name: {_productName}\nProduct Id: {_productId}";
+    }
     public int getPrice(){
         int price = _price * _productQty;
         return price;

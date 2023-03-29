@@ -15,17 +15,18 @@ public class Address{
     }
 
     //Get the customer's address
-    public string getAddress(){
+    public string getAddressUSA(){
         string add;
         //Check if the customer is living in the united state.
         if(_country.ToLower() != "USA"){
-            add = "USA";
+            add = _country;
         }else{
-            add = "other";
+            add = "USA";
         }
-
         //save this into a variable and check it to know how to calculate the cost of shipping
-        return $"{add}";
+        return add;
     }
-    
+    public string getFullAdd(){
+       return $" Street: {_street}\n City: {_city}\n State: {_state}\n Country: {_country}";
+    }
 }

@@ -10,15 +10,15 @@ public class Customer{
 
     //Getting the name
     public string getName(){
-        return _name;
+        return $"Customer name: {_name}";
     }
     //Add address
-    public void addAddress(string add){
+    public void setAddress(string add){
         _address = add;
     }
-    public string getAddress(string addr){
+    public string getAddress(){
 
-        return _address;
+        return  _address;
     }
 
 
