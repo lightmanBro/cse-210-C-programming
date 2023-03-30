@@ -11,9 +11,10 @@ public class Reception:Event{
     public string getRsvpEmail(){
         return _rsvpEmail;
     }
-    public void shorDesc(){
-        Console.WriteLine($"Event Type: {_eventType}\nEvent Title: {_eventTitle}\nEvent Date: {_eventDate}");
+    public string shorDesc(){
+        return $"Event Type: {_eventType}\nEvent Title: {_eventTitle}\nEvent Date: {_eventDate}";
     }
+    
     public void fullDetails(){
         string fulldetails = $"Title: {_eventTitle}\nDescription: {_eventDesc}\nDate: {_eventDate}\nAddress: {_eventAddress}";
         Console.WriteLine(fulldetails);
