@@ -1,8 +1,8 @@
 public class Event{
-    private string _eventTitle;
-    private string _eventDesc;
-    private string _eventDate;
-    private string _eventAddress;
+    protected string _eventTitle;
+    protected string _eventDesc;
+    protected string _eventDate;
+    protected string _eventAddress;
 
 
     public string standardDetails(){

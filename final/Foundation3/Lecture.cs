@@ -5,6 +5,7 @@ public class Lecture:Event{
 
     public string fullDetails(){
 
-        
+        string fulldetails = $"Title: {_eventTitle}\nDescription: {_eventDesc}\nDate: {_eventDate}\nAddress: {_eventAddress}\nSpeaker: {_speaker}\nCapacity {_capacity}";
+        return fulldetails;
     }
 }
