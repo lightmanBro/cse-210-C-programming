@@ -16,6 +16,6 @@ public class Address{
 
     //Get the Event's address
     public string getFullAdd(){
-       return $" Street: {_street}\n City: {_city}\n State: {_state}\n Country: {_country}";
+       return $" Street: {_street}\nCity: {_city}\nState: {_state}\nCountry: {_country}";
     }
 }

@@ -8,14 +8,24 @@ public class Reception:Event{
 
         _rsvpEmail = rsvpemail;
     }
-
+    public string getRsvpEmail(){
+        return _rsvpEmail;
+    }
     public void shorDesc(){
         Console.WriteLine($"Event Type: {_eventType}\nEvent Title: {_eventTitle}\nEvent Date: {_eventDate}");
     }
-    public string fullDetails(){
-
-        string fulldetails = $"Title: {_eventTitle}\nDescription: {_eventDesc}\nDate: {_eventDate}\nAddress: {_eventAddress}\n";
-        return fulldetails;
+    public void fullDetails(){
+        string fulldetails = $"Title: {_eventTitle}\nDescription: {_eventDesc}\nDate: {_eventDate}\nAddress: {_eventAddress}";
+        Console.WriteLine(fulldetails);
+        Console.WriteLine("Do you want a reservation?\nYes or No");
+        string ans = Console.ReadLine();
+        if(ans == "Yes" || ans == "yes"){
+            Console.WriteLine("Enter your email Address");
+            string email = Console.ReadLine();
+            setRsvpEmail(email);
+            Console.WriteLine($"{fulldetails}\nThank you for your\nWe will get back to you on this Email: {getRsvpEmail()}");
+        }
+        
     }
 }
 
