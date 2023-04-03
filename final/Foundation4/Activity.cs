@@ -1,4 +1,5 @@
-public class Activity{
+public abstract class Activity
+{
 
     private string _name;
     private double _distance;
@@ -12,15 +13,29 @@ public class Activity{
         return summ;
     }
 
-    public double getDistance(){
+    public void setDistance(double distance)
+    {
+        _distance = distance;
+    }
+
+    public void setSpeed(double speed)
+    {
+        _speed = speed;
+    }
+
+    public void setPace(double pace){
+        
+        _pace = pace;
+    }
+    public double getDistance()
+    {
         return _distance;
     }
 
-    public double getSpeed(){
-        return _speed;
-    }
+    public virtual double getSpeed()
 
-    public double getPace(){
+    public double getPace()
+    {
         return _pace;
     }
 
