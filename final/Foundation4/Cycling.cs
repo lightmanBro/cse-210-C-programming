@@ -1,14 +1,24 @@
 public class Cycling:Activity{
 
-    private int _speed;
 
-
-    public void calculateSpeed(int speed){
-        
+    public override double getDistance()
+    {
+         _distance= _numberOfLap * 50/1000;
+         return _distance;
+    }
+    public override double getSpeed()
+    {
+        _speed = getDistance()/_mins;
+        return _speed;
+    }
+    public override double getPace()
+    {
+        _pace = _mins / _distance;
+        return _pace;
     }
     public override string GetSummary()
     {
-        return $"{date} Running({_time} min) Distance {} miles, ";
+        return $"{_date} Running({_mins} min) Distance {} miles, ";
     }
 
 }
