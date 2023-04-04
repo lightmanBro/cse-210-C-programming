@@ -1,8 +1,13 @@
 public class Running:Activity{
 
-    public override double getSpeed()
-    {
-        return ;
-    }
+    private int _distance;
 
+
+    public void calculateDistance(int d){
+        
+    }
+    public override string GetSummary()
+    {
+        
+    }
 }
