@@ -27,14 +27,16 @@ public abstract class Activity
         
         _pace = pace;
     }
-    public double getDistance()
+    public virtual double getDistance()
     {
         return _distance;
     }
 
-    public abstract double getSpeed();
+    public virtual double getSpeed(){
+        return _speed;
+    }
 
-    public double getPace()
+    public virtual double getPace()
     {
         return _pace;
     }

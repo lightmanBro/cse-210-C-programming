@@ -1,8 +1,8 @@
 public class Running:Activity{
 
-    private override double getSpeed()
+    public override double getSpeed()
     {
-
+        return ;
     }
 
 }
