@@ -2,6 +2,10 @@ public class Swimming:Activity{
 
     private int _numberOfLap;
 
+
+    public void setLap(int lap){
+        _numberOfLap = lap;
+    }
     public override double getDistance()
     {
          _distance= _numberOfLap * 50/1000;
@@ -19,6 +23,6 @@ public class Swimming:Activity{
     }
     public override string GetSummary()
     {
-        return $"{_date} Running({_time} min) Distance {} miles, ";
+        return $"{_date} Running({_mins} min) Distance {getDistance()} miles, Speed {getSpeed()} mph, Pace: {getPace()} min per mile ";
     }
 }

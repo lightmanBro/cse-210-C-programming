@@ -37,4 +37,5 @@ public abstract class Activity
         return _pace;
     }
 
+    public abstract string GetSummary();
 }

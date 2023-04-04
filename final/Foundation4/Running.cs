@@ -1,11 +1,8 @@
 public class Running:Activity{
 
-    private int _distance;
-
-
     public override double getDistance()
     {
-         _distance= _numberOfLap * 50/1000;
+         _distance= _lenght * 50/1000;
          return _distance;
     }
     public override double getSpeed()
@@ -20,6 +17,6 @@ public class Running:Activity{
     }
     public override string GetSummary()
     {
-        
+        return $"{_date} Running({_mins} min) Distance {getDistance()} miles, Speed {getSpeed()} mph, Pace: {getPace()} min per mile ";
     }
 }
