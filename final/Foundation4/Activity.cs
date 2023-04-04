@@ -32,7 +32,7 @@ public abstract class Activity
         return _distance;
     }
 
-    public virtual double getSpeed()
+    public abstract double getSpeed();
 
     public double getPace()
     {
