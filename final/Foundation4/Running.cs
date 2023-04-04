@@ -1,5 +1,9 @@
 public class Running:Activity{
 
+    private double _lenght;
+    public void setLength(double l){
+        _lenght = l;
+    }
     public override double getDistance()
     {
          _distance= _lenght * 50/1000;
@@ -7,7 +11,7 @@ public class Running:Activity{
     }
     public override double getSpeed()
     {
-        _speed = getDistance()/_mins;
+        _speed = (getDistance()/_mins) * 60;
         return _speed;
     }
     public override double getPace()

@@ -2,7 +2,6 @@ public abstract class Activity
 {
 
     protected string _name;
-    protected double _lenght;
     protected double _speed;
     protected double _pace;
     protected double _mins;
@@ -22,6 +21,13 @@ public abstract class Activity
 
     public void setDistance(double dist){
         _distance = dist;
+    }
+
+    public void setTime(double time){
+        _mins = time;
+    }
+    public void setDate(string date){
+        _date = date;
     }
     public virtual double getDistance()
     {
